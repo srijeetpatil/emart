@@ -8,22 +8,22 @@ function Header(){
                     <div className="container">                                                                       
                         <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link basic-font"  ><span className="fa fa-plug fa-lg"></span> Electronics</NavLink>
+                                <NavLink className="nav-link basic-font"  ><span className="fa fa-plug"></span> Electronics</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link basic-font" ><span className="fa fa-male fa-lg"></span> Men</NavLink>
+                                <NavLink className="nav-link basic-font" ><span className="fa fa-male"></span> Men</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link basic-font"  ><span className="fa fa-female fa-lg"></span> Women</NavLink>
+                                <NavLink className="nav-link basic-font"  ><span className="fa fa-female"></span> Women</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link basic-font" ><span className="fa fa-child fa-lg"></span> Kids</NavLink>
+                                <NavLink className="nav-link basic-font" ><span className="fa fa-child"></span> Kids</NavLink>
                             </NavItem>    
                             <NavItem>
-                                <NavLink className="nav-link basic-font" ><span className="fa fa-futbol-o fa-lg"></span> Sports</NavLink>
+                                <NavLink className="nav-link basic-font" ><span className="fa fa-futbol-o"></span> Sports</NavLink>
                             </NavItem>   
                             <NavItem>
-                                <NavLink className="nav-link basic-font" ><span className="fa fa-book fa-lg"></span> Books</NavLink>
+                                <NavLink className="nav-link basic-font" ><span className="fa fa-book"></span> Books</NavLink>
                             </NavItem>                                                  
                         </Nav> 
                         <Nav className="ml-auto" navbar>

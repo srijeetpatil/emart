@@ -5,7 +5,7 @@ import {women} from '../data/women';
 import {kids} from '../data/kids';
 import {sports} from '../data/sports';
 import {books} from '../data/books';
-import {Card, CardBody, CardImg, CardSubtitle} from 'reactstrap';
+import {Card, CardBody, CardImg, CardSubtitle, CardTitle} from 'reactstrap';
 
 class Promos extends Component{ 
     getitems(){
@@ -48,11 +48,16 @@ class Promos extends Component{
             var source = require('../' + item.image);                
             return(
                 <div className="col-md-3 mt-2">
-                    <Card>
-                        <CardSubtitle>{item.name}</CardSubtitle>
+                    <Card style={{height:"100%", borderRadius:"0px"}}>
+                        <CardTitle></CardTitle>
                         <CardBody>
-                            <CardImg top src={source}></CardImg>
-                            {item.description}
+                            <CardImg style={{height:"50%"}}top src={source}></CardImg>
+                            <div style={{textAlign: "center"}}>
+                                {item.name}                                
+                            </div> 
+                            <div style={{textAlign: "center", textDecorationLine: "line-through"}}>
+                                {item.price}
+                            </div>                          
                         </CardBody>
                     </Card>
                 </div>                    
@@ -60,6 +65,7 @@ class Promos extends Component{
         });
         return(
             <div className="container">
+
                 <div className="row">
                     {items}
                 </div>
