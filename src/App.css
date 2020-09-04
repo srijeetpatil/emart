@@ -11,7 +11,8 @@
     outline: 0px;
     border-color: #000000; 
     height: 50%;  
-    width: 80%      
+    width: 80%;
+    border-radius: 10px 0 0 10px;
 }
 .jumbotron{
     margin: 0px auto;    

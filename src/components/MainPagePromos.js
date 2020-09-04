@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {electornics} from '../data/electronics';
+import {electronics} from '../data/electronics';
 import {men} from '../data/men';
 import {women} from '../data/women';
 import {kids} from '../data/kids';
@@ -10,9 +10,9 @@ import {Card, CardBody, CardImg, CardSubtitle, CardTitle} from 'reactstrap';
 class Promos extends Component{ 
     getitems(){
         const items = []        
-        for(var i = 0; i < electornics.length; i++){
-            if(electornics[i].featured === 1){
-                items.push(electornics[i]);
+        for(var i = 0; i < electronics.length; i++){
+            if(electronics[i].featured === 1){
+                items.push(electronics[i]);
             }
         }        
         for(var i = 0; i < men.length; i++){
@@ -49,9 +49,9 @@ class Promos extends Component{
             return(
                 <div className="col-md-3 mt-2">
                     <Card style={{height:"100%", borderRadius:"0px"}}>
-                        <CardTitle></CardTitle>
+                        <CardTitle></CardTitle> 
                         <CardBody>
-                            <CardImg style={{height:"50%"}}top src={source}></CardImg>
+                            <CardImg style={{height:"50%", objectFit:"contain"}} top src={source}></CardImg>
                             <div style={{textAlign: "center"}}>
                                 {item.name}                                
                             </div> 

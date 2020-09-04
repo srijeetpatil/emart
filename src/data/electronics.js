@@ -1,4 +1,4 @@
-export const electornics = [
+export const electronics = [
     {
         "name": "SamSung LED TV",
         "description": "Witness the future with Curved UHD TV, with our best wishes for Diwali 2020",
@@ -11,7 +11,8 @@ export const electornics = [
         "name":"Micromax LED TV",
         "description": "Future harnessed",
         "image":"assets/logo512.png",
-        "featured": 1        
+        "featured": 1,        
+        "price":"$48000"
     },
     {
         "name":"Iphone 11 Apple pro Smart Phone",
