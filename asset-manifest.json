@@ -1,27 +1,32 @@
 {
   "files": {
-    "main.css": "/pbl/static/css/main.b1abc1a5.chunk.css",
-    "main.js": "/pbl/static/js/main.c695835d.chunk.js",
-    "main.js.map": "/pbl/static/js/main.c695835d.chunk.js.map",
+    "main.css": "/pbl/static/css/main.c0e7d540.chunk.css",
+    "main.js": "/pbl/static/js/main.92a01331.chunk.js",
+    "main.js.map": "/pbl/static/js/main.92a01331.chunk.js.map",
     "runtime-main.js": "/pbl/static/js/runtime-main.9c351974.js",
     "runtime-main.js.map": "/pbl/static/js/runtime-main.9c351974.js.map",
     "static/css/2.517e9128.chunk.css": "/pbl/static/css/2.517e9128.chunk.css",
-    "static/js/2.3a927556.chunk.js": "/pbl/static/js/2.3a927556.chunk.js",
-    "static/js/2.3a927556.chunk.js.map": "/pbl/static/js/2.3a927556.chunk.js.map",
+    "static/js/2.839ca922.chunk.js": "/pbl/static/js/2.839ca922.chunk.js",
+    "static/js/2.839ca922.chunk.js.map": "/pbl/static/js/2.839ca922.chunk.js.map",
     "index.html": "/pbl/index.html",
-    "precache-manifest.b9f099518ee9c44dd93b7737726763c6.js": "/pbl/precache-manifest.b9f099518ee9c44dd93b7737726763c6.js",
+    "precache-manifest.92c1d179e9a26576db4f0bde742bf166.js": "/pbl/precache-manifest.92c1d179e9a26576db4f0bde742bf166.js",
     "service-worker.js": "/pbl/service-worker.js",
     "static/css/2.517e9128.chunk.css.map": "/pbl/static/css/2.517e9128.chunk.css.map",
-    "static/css/main.b1abc1a5.chunk.css.map": "/pbl/static/css/main.b1abc1a5.chunk.css.map",
-    "static/js/2.3a927556.chunk.js.LICENSE.txt": "/pbl/static/js/2.3a927556.chunk.js.LICENSE.txt",
+    "static/css/main.c0e7d540.chunk.css.map": "/pbl/static/css/main.c0e7d540.chunk.css.map",
+    "static/js/2.839ca922.chunk.js.LICENSE.txt": "/pbl/static/js/2.839ca922.chunk.js.LICENSE.txt",
+    "static/media/card-boxes.jpg": "/pbl/static/media/card-boxes.179ae090.jpg",
     "static/media/font-awesome.css": "/pbl/static/media/fontawesome-webfont.fee66e71.woff",
-    "static/media/logo.svg": "/pbl/static/media/logo.5d5d9eef.svg"
+    "static/media/iphone.jpg": "/pbl/static/media/iphone.90803e77.jpg",
+    "static/media/logo.svg": "/pbl/static/media/logo.5d5d9eef.svg",
+    "static/media/online-shopping.jpg": "/pbl/static/media/online-shopping.6cd1b161.jpg",
+    "static/media/sony.jpg": "/pbl/static/media/sony.5c89794a.jpg",
+    "static/media/woman.jpg": "/pbl/static/media/woman.8376db9b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.9c351974.js",
     "static/css/2.517e9128.chunk.css",
-    "static/js/2.3a927556.chunk.js",
-    "static/css/main.b1abc1a5.chunk.css",
-    "static/js/main.c695835d.chunk.js"
+    "static/js/2.839ca922.chunk.js",
+    "static/css/main.c0e7d540.chunk.css",
+    "static/js/main.92a01331.chunk.js"
   ]
 }
