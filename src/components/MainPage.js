@@ -5,7 +5,7 @@ import Promos from './MainPagePromos';
 import CarouselComponent from './CarouselComponent';
 import {Switch, Redirect, Route, withRouter} from 'react-router-dom';
 import Result from './ResultComponent';
-
+import ItemDetail from './ItemDetail';
 
 function Main(){  
     const sendResult = ({match}) => {                   
@@ -13,24 +13,34 @@ function Main(){
         <Result arr={match.params.arr}/>
         );        
     }
+    const sendItem = ({match}) => {
+        return(
+            <ItemDetail item={match.params.prod_id}/>
+        );
+    }
     return (
         <div className="bg">            
             <Header/> 
             <Switch>                
             <Route path="/home" component={() => {
                 return(
-                    <div>
-                        <div style={{height:"350px"}}>
+                    <div>                                                                      
+                        <div >
                             <CarouselComponent/>
-                        </div>                 
-                        <Promos/> 
+                        </div> 
+                        <div className="container">
+                            <div className="overlay">
+                                <Promos/>
+                            </div>  
+                        </div>                                                                                       
                     </div>                            
                 );
                 }}/> 
             <Route path='/result/:arr' component={sendResult}/>
-            <Redirect to="/home"/>                                                   
-            </Switch>                                                                                                            
-            <Footer/>           
+            <Route path='/itemDetail/:prod_id' component={sendItem}/>           
+            <Redirect to="/home"/>                                                               
+            </Switch>             
+            <Footer/>                                                                                                                                            
         </div>
     );
 }

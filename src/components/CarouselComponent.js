@@ -49,11 +49,8 @@ return (
         next={next}
         previous={previous}
         interval="3000"
-    >
-        <CarouselIndicators items={carouselItems} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+    >        
+        {slides}        
     </Carousel>
     );
 }

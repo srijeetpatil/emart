@@ -18,4 +18,8 @@
     margin: 0px auto;    
     width: 100%;
 }
-
+.overlay{
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+}

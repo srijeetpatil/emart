@@ -1,5 +1,5 @@
 import React from 'react';
-import {Jumbotron, Navbar, Nav, InputGroup, Input, NavItem, NavLink,Button, NavbarBrand} from 'reactstrap';
+import {Navbar, Nav, InputGroup, Input, NavItem, NavLink, Button,NavbarBrand} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 
@@ -7,8 +7,10 @@ function Header(){
     return(
         <React.Fragment>
                 <Navbar className="nav" expand="md">
-                    <NavbarBrand className="mr-auto" href="/">
-                        <img className="basic-font" src='../assets/logo512.png' height="30" width="41" alt='EMART logo' />
+                    <NavbarBrand className="mr-auto">
+                        <Link to='/home'>
+                            <img className="basic-font" src={require('../assets/logo512.png')} height="30" width="41" alt='EMART logo' />
+                        </Link>                        
                     </NavbarBrand>
                     <div className="container">                                                                       
                         <Nav navbar>
@@ -61,18 +63,7 @@ function Header(){
                             </Button>                            
                         </Nav>                                                                          
                     </div>
-                </Navbar>  
-                <Jumbotron>
-                    <div className="row">
-                        <h1 className="basic-font col-sm-4">E MART</h1>
-                        <div className="col-sm-4">                            
-                            <input className="search mt-3" type="text" placeholder="Search Not developed Yet"></input>
-                            <Button className="mb-1">
-                                <span className="fa fa-search"></span>
-                            </Button>                            
-                        </div>                        
-                    </div>                   
-                </Jumbotron>
+                </Navbar>                  
         </React.Fragment>                                                
     );
 }

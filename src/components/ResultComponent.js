@@ -33,7 +33,7 @@ class Result extends Component{
         const array = itemarr.map((item) => { 
             var source = require('../' + item.image);            
             return(
-                <div style={{marginBottom:"15px"}}> 
+                <div style={{marginTop:"15px"}}> 
                     <Card style={{borderRadius:"0px"}}>
                         <div className="row">
                             <div className="col-md-3">
@@ -53,6 +53,7 @@ class Result extends Component{
         return(
             <div style={{marginLeft:"20px", marginRight:"20px"}}>
                 {array}
+                <hr></hr>
             </div>
         );
     }

@@ -5,9 +5,13 @@ import {women} from '../data/women';
 import {kids} from '../data/kids';
 import {sports} from '../data/sports';
 import {books} from '../data/books';
-import {Card, CardBody, CardImg, CardSubtitle, CardTitle} from 'reactstrap';
+import {Card, CardBody, CardImg, CardSubtitle, CardTitle, Jumbotron, Button, CardLink} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 class Promos extends Component{ 
+    constructor(props){
+        super(props);
+    }
     getitems(){
         const items = []        
         for(var i = 0; i < electronics.length; i++){
@@ -45,28 +49,39 @@ class Promos extends Component{
     render(){
         const arr = this.getitems();
         const items = arr.map((item) => {
-            var source = require('../' + item.image);                
+            var source = require('../' + item.image); 
+            var it = item;            
             return(
                 <div className="col-md-3 mt-2">
                     <Card style={{height:"100%", borderRadius:"0px"}}>
-                        <CardTitle></CardTitle> 
+                        <CardTitle></CardTitle>                         
                         <CardBody>
-                            <CardImg style={{height:"50%", objectFit:"contain"}} top src={source}></CardImg>
-                            <div style={{textAlign: "center"}}>
-                                {item.name}                                
-                            </div> 
-                            <div style={{textAlign: "center", textDecorationLine: "line-through"}}>
-                                {item.price}
-                            </div>                          
-                        </CardBody>
+                            <Link to={`/itemDetail/${item.prod_id}`}>
+                                <CardImg style={{height:"50%", objectFit:"contain"}} top src={source}></CardImg>
+                                </Link>
+                                <div style={{textAlign: "center"}}>
+                                    {item.name}                                
+                                </div> 
+                                <div style={{textAlign: "center", textDecorationLine: "line-through"}}>
+                                    {item.price}
+                                </div>                                                       
+                        </CardBody>                                               
                     </Card>
                 </div>                    
             );                      
         });
         return(
-            <div className="container">
-
-                <div className="row">
+            <div className="container">                
+                    <div className="row">
+                        <h1 className="basic-font col-sm-4">E MART</h1>
+                        <div className="col-sm-4">                            
+                            <input className="search mt-3" type="text" placeholder="Search Not developed Yet"></input>
+                            <Button className="mb-1">
+                                <span className="fa fa-search"></span>
+                            </Button>                            
+                        </div>                        
+                    </div>                   
+                <div className="row" style={{marginTop:"150px"}}> 
                     {items}
                 </div>
             </div>            
