@@ -1,9 +1,4 @@
-export const carouselItems = [
-    {
-        "src":"online-shopping.jpg",
-        "altText": "Online-shopping",
-        "caption":"Get The Best Deals"
-    },
+export const carouselItems = [  
     {
         "src":"woman.jpg",
         "altText":"Fashion",
@@ -13,5 +8,10 @@ export const carouselItems = [
         "src":"card-boxes.jpg",
         "altText":"Cart",
         "caption":"The best online retail shop"
+    },
+    {
+        "src":"online-shopping.jpg",
+        "altText": "Online-shopping",
+        "caption":"Get The Best Deals"
     }
 ]

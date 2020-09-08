@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import {Card, CardBody, CardImg, CardText} from 'reactstrap';
-import {electronics} from '../data/electronics';
-import {men} from '../data/men';
-import {women} from '../data/women';
-import {kids} from '../data/kids';
-import {sports} from '../data/sports';
-import {books} from '../data/books';
+import database from '../data/database';
 
 class Result extends Component{
     constructor(props){
@@ -16,17 +11,17 @@ class Result extends Component{
         const items = () => {
             switch(num){
                 case 1:
-                    return electronics;               
+                    return database.electronics;               
                 case 2:
-                    return men;
+                    return database.men;
                 case 3:
-                    return women;
+                    return database.women;
                 case 4:
-                    return kids;
+                    return database.kids;
                 case 5:
-                    return sports;
+                    return database.sports;
                 case 6:
-                    return books;
+                    return database.books;
             }    
         }  
         var itemarr = items();             

@@ -9,18 +9,20 @@ import {carouselItems} from '../data/carouselItems';
 const CarouselComponent = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
+    let width = window.innerWidth;
+    var items = carouselItems;   
 
     const next = () => {
         if(animating){
             return;
         }
-        const nextIndex = activeIndex === carouselItems.length - 1 ? 0 : activeIndex + 1;
+        const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
     }
 
     const previous = () => {
         if (animating) return;
-        const nextIndex = activeIndex === 0 ? carouselItems.length - 1 : activeIndex - 1;
+        const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
     }
 
@@ -29,7 +31,7 @@ const CarouselComponent = (props) => {
         setActiveIndex(newIndex);
       }
 
-    const slides = carouselItems.map((item) => {
+    const slides = items.map((item) => {
     const source = require('../assets/carousel/' + item.src);
     return (
         <CarouselItem
@@ -37,8 +39,7 @@ const CarouselComponent = (props) => {
         onExited={() => setAnimating(false)}
         key={source}
         >
-            <img src={source} alt={item.altText} />
-            <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+            <img src={source} alt={item.altText} className="carouselImage"/>            
         </CarouselItem>
     );
     });

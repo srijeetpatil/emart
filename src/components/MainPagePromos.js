@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-import {electronics} from '../data/electronics';
-import {men} from '../data/men';
-import {women} from '../data/women';
-import {kids} from '../data/kids';
-import {sports} from '../data/sports';
-import {books} from '../data/books';
 import {Card, CardBody, CardImg, CardSubtitle, CardTitle, Jumbotron, Button, CardLink} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import database from '../data/database';
 
 class Promos extends Component{ 
     constructor(props){
@@ -14,34 +9,34 @@ class Promos extends Component{
     }
     getitems(){
         const items = []        
-        for(var i = 0; i < electronics.length; i++){
-            if(electronics[i].featured === 1){
-                items.push(electronics[i]);
+        for(var i = 0; i < database.electronics.length; i++){
+            if(database.electronics[i].featured === 1){
+                items.push(database.electronics[i]);
             }
         }        
-        for(var i = 0; i < men.length; i++){
-            if(men[i].featured === 1){
-                items.push(men[i]);
+        for(var i = 0; i < database.men.length; i++){
+            if(database.men[i].featured === 1){
+                items.push(database.men[i]);
             }
         }               
-        for(var i = 0; i < women.length; i++){
-            if(women[i].featured === 1){
-                items.push(women[i]);
+        for(var i = 0; i < database.women.length; i++){
+            if(database.women[i].featured === 1){
+                items.push(database.women[i]);
             }
         } 
-        for(var i = 0; i < kids.length; i++){
-            if(kids[i].featured === 1){
-                items.push(kids[i]);
+        for(var i = 0; i < database.kids.length; i++){
+            if(database.kids[i].featured === 1){
+                items.push(database.kids[i]);
             }
         } 
-        for(var i = 0; i < sports.length; i++){
-            if(sports[i].featured === 1){
-                items.push(sports[i]);
+        for(var i = 0; i < database.sports.length; i++){
+            if(database.sports[i].featured === 1){
+                items.push(database.sports[i]);
             }
         } 
-        for(var i = 0; i < books.length; i++){
-            if(books[i].featured === 1){
-                items.push(books[i]);
+        for(var i = 0; i < database.books.length; i++){
+            if(database.books[i].featured === 1){
+                items.push(database.books[i]);
             }
         }         
         return items;      
@@ -49,15 +44,14 @@ class Promos extends Component{
     render(){
         const arr = this.getitems();
         const items = arr.map((item) => {
-            var source = require('../' + item.image); 
-            var it = item;            
+            var source = require('../' + item.image);                        
             return(
-                <div className="col-md-3 mt-2">
+                <div className="mt-2 cardItem">
                     <Card style={{height:"100%", borderRadius:"0px"}}>
                         <CardTitle></CardTitle>                         
                         <CardBody>
                             <Link to={`/itemDetail/${item.prod_id}`}>
-                                <CardImg style={{height:"50%", objectFit:"contain"}} top src={source}></CardImg>
+                                <CardImg style={{objectFit:"contain"}} src={source}></CardImg>
                                 </Link>
                                 <div style={{textAlign: "center"}}>
                                     {item.name}                                
@@ -81,7 +75,7 @@ class Promos extends Component{
                             </Button>                            
                         </div>                        
                     </div>                   
-                <div className="row" style={{marginTop:"150px"}}> 
+                <div className="row" style={{marginTop:"150px", marginBottom:"15px"}}> 
                     {items}
                 </div>
             </div>            
