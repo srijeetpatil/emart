@@ -8,20 +8,21 @@ class ItemDetail extends Component{
     render(){   
         var source = require('../' + this.props.item.image);                                                     
         return(
-            <div style={{marginTop:"10px",marginLeft:"10px", marginRight:"10px"}}>                    
+            <div className="itemDetail">                    
                 <Card style={{borderRadius:"0px"}}> 
-                    <div className="row" style={{marginTop:"15px", marginLeft:"15px",
-                             marginBottom:"15px"}}>
-                        <div className="col-md-5"> 
-                            <CardImg src={source} style={{objectFit:"contain"}}></CardImg>                                              
-                        </div>
-                        <div>
-                            <h2>{this.props.item.name}</h2> 
-                            <h5>{this.props.item.price}</h5>
-                            <h3 className="basic-font">Description</h3>
-                            <hr></hr>
-                            <CardText>{this.props.item.description}</CardText>                            
-                        </div>
+                    <div className="itemDetail">
+                        <div className="row">
+                            <div className="col-md-5"> 
+                                <CardImg src={source} style={{objectFit:"contain"}}></CardImg>                                              
+                            </div>
+                            <div className="itemDetail">
+                                <h2>{this.props.item.name}</h2> 
+                                <h4 style={{color:"maroon"}}>{this.props.item.price}</h4>
+                                <h3 className="basic-font">Description</h3>
+                                <hr></hr>
+                                <CardText>{this.props.item.description}</CardText>                            
+                            </div>
+                        </div>                        
                     </div>                       
                 </Card>                
                 <hr></hr>

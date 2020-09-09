@@ -66,16 +66,14 @@ class Promos extends Component{
         });
         return(
             <div className="container">                
-                    <div className="row">
-                        <h1 className="basic-font col-sm-4">E MART</h1>
-                        <div className="col-sm-4">                            
-                            <input className="search mt-3" type="text" placeholder="Search Not developed Yet"></input>
-                            <Button className="mb-1">
-                                <span className="fa fa-search"></span>
-                            </Button>                            
+                    <div className="row" style={{justifyContent:"center", alignItems:"center"}}>
+                        <h1 className="basic-font col-md-3">E MART</h1>
+                        <div className="col-md-6">                                                        
+                            <input className="search" type="text" placeholder="Search not developed yet"></input>                                                       
                         </div>                        
-                    </div>                   
-                <div className="row" style={{marginTop:"150px", marginBottom:"15px"}}> 
+                    </div>                                      
+                <div className="row" style={{marginTop:"100px", marginBottom:"15px"}}>   
+                    <h4 className="col-12 basic-font">Products you might be interested in...</h4>                   
                     {items}
                 </div>
             </div>            

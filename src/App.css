@@ -10,18 +10,18 @@
     border: 2px;
     outline: 0px;
     border-color: #000000; 
-    height: 50%;  
-    width: 80%;
-    border-radius: 10px 0 0 10px;
+    height: 60%;  
+    width: 60%;
+    border-radius: 10px 10px 10px 10px;
 }
 .jumbotron{
     margin: 0px auto;    
     width: 100%;
 }
 .overlay{
-    position: absolute;
+    width:100%;
     z-index: 1;
-    top: 150px;
+    position: absolute;
 }
 .carouselItem{
     height: 150px;    
@@ -40,6 +40,12 @@
     right:0;
     position: static;
 }
+.itemDetail{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
@@ -57,5 +63,11 @@
         height: 300px;
         width: 100%;
         object-fit: cover;
+    }
+    .itemDetail{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
