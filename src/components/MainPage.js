@@ -7,6 +7,7 @@ import {Switch, Redirect, Route, withRouter} from 'react-router-dom';
 import Result from './ResultComponent';
 import ItemDetail from './ItemDetail';
 import database from '../data/database';
+import HeaderBig from './HeaderSample';
 
 function Main(){  
     const sendResult = ({match}) => {                   
@@ -75,9 +76,18 @@ function Main(){
             <ItemDetail item={item}/>
         );
     }   
+    var width = window.innerWidth;
+    const headerMain = () => {
+        if(width > 768){
+            return(<HeaderBig/>);
+        }
+        else{
+            return(<Header/>);
+        }
+    }
     return (        
-        <div className="bg">            
-            <Header/>
+        <div className="bg">              
+            {headerMain()}         
             <div>
                 <Switch>                
                     <Route path="/home" component={() => {
