@@ -9,7 +9,6 @@ import {carouselItems} from '../data/carouselItems';
 const CarouselComponent = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
-    let width = window.innerWidth;
     var items = carouselItems;   
 
     const next = () => {
@@ -51,7 +50,9 @@ return (
         previous={previous}
         interval="3000"
     >        
-        {slides}        
+        {slides} 
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />             
     </Carousel>
     );
 }
