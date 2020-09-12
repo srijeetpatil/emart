@@ -6,26 +6,21 @@ class ItemDetail extends Component{
         super(props);        
     }
     render(){   
-        var source = require('../' + this.props.item.image);                                                     
+        var source = require('../' + this.props.item.image);                                      
         return(
-            <div className="itemDetail">                    
-                <Card style={{borderRadius:"0px"}}> 
-                    <div className="itemDetail">
-                        <div className="row">
-                            <div className="col-md-5"> 
-                                <CardImg src={source} style={{objectFit:"contain"}}></CardImg>                                              
-                            </div>
-                            <div className="itemDetail">
-                                <h2>{this.props.item.name}</h2> 
-                                <h4 style={{color:"maroon"}}>{this.props.item.price}</h4>
-                                <h3 className="basic-font">Description</h3>
-                                <hr></hr>
-                                <CardText>{this.props.item.description}</CardText>                            
-                            </div>
-                        </div>                        
-                    </div>                       
-                </Card>                
-                <hr></hr>
+            <div className="container"> 
+                <div className="row" style={{paddingTop:"10px"}}>
+                    <div className="itemDetail" style={{marginLeft:"10px", marginRight:"10px"}}>                     
+                        <img className="itemImage" src={source} style={{objectFit:"contain"}}></img>                                                                                    
+                    </div>
+                    <div className="itemDetail" style={{marginLeft:"10px", marginRight:"10px"}}>
+                        <h2>{this.props.item.name}</h2> 
+                        <p style={{fontSize:"14px"}}><b>Price</b><h4 style={{color:"#bb0b0b"}}>{this.props.item.price}</h4></p>
+                        <h3 className="basic-font">Description</h3>
+                        <hr></hr>
+                        <p style={{fontSize:"14px"}}>{this.props.item.description}</p>                            
+                    </div> 
+                </div>                                                                  
             </div>            
         );
     }

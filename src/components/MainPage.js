@@ -12,7 +12,9 @@ import HeaderBig from './HeaderSample';
 function Main(){  
     const sendResult = ({match}) => {                   
         return(
-        <Result arr={match.params.arr}/>
+            <div style={{backgroundColor:"white"}}>
+                <Result arr={match.params.arr}/>
+            </div>            
         );        
     }
     const sendItem = ({match}) => {
@@ -73,7 +75,9 @@ function Main(){
             }
         }        
         return(
-            <ItemDetail item={item}/>
+            <div style={{backgroundColor:"white"}}>
+                <ItemDetail item={item}/>
+            </div>            
         );
     }   
     var width = window.innerWidth;

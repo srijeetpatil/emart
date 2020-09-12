@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Card, CardBody, CardImg, CardSubtitle, CardTitle, Jumbotron, Button, CardLink} from 'reactstrap';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import database from '../data/database';
 
 class Promos extends Component{ 
@@ -46,21 +46,20 @@ class Promos extends Component{
         const items = arr.map((item) => {
             var source = require('../' + item.image);                        
             return(
-                <div className="mt-2 cardItem">
+                <div className="mt-2 cardItem">                    
                     <Card style={{height:"100%", borderRadius:"0px"}}>
-                        <CardTitle></CardTitle>                         
-                        <CardBody>
-                            <Link to={`/itemDetail/${item.prod_id}`}>
-                                <CardImg style={{objectFit:"contain"}} src={source}></CardImg>
-                                </Link>
-                                <div style={{textAlign: "center"}}>
+                        <NavLink className="nav-link" to={`/itemDetail/${item.prod_id}`}>                                                    
+                            <CardBody>                            
+                                <CardImg style={{objectFit:"contain"}} src={source}></CardImg>                                
+                                <div style={{textAlign: "center", color:"black"}}>
                                     {item.name}                                
                                 </div> 
-                                <div style={{textAlign: "center", textDecorationLine: "line-through"}}>
-                                    {item.price}
+                                <div style={{textAlign: "center", textDecorationLine: "line-through", color:"maroon"}}>
+                                    <h6>{item.price}</h6>                                
                                 </div>                                                       
-                        </CardBody>                                               
-                    </Card>
+                            </CardBody> 
+                        </NavLink>                                              
+                    </Card>                    
                 </div>                    
             );                      
         });
