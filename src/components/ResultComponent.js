@@ -9,21 +9,21 @@ class Result extends Component{
         const array = this.props.items.map((item) => { 
             var source = require('../' + item.image);            
             return(
-                <div className="container">           
-                    <NavLink className="nav-link" to={`/itemDetail/${item.prod_id}`}>          
-                        <div className="row" style={{width:"100%", marginRight:"10px", marginLeft:"10px"}}>
-                            <div className="resultItem1">
-                                <img src={source} style={{width:"100%", objectFit:"cover"}}></img>                          
-                            </div>                        
-                            <div className="resultItem2" style={{marginLeft:"10px"}}>                            
-                                <h4 style={{color:"black"}}>{item.name}</h4>
-                                <h4 style={{color:"maroon"}}>{item.price}</h4>                                                                                                                            
-                            </div>                        
-                        </div> 
-                        <div className="container">
-                            <hr></hr>                         
-                        </div>  
-                    </NavLink>                                                    
+                <div style={{maxHeight:"250px"}}>           
+                    <NavLink className="nav-link" to={`/itemDetail/${item.prod_id}`}> 
+                        <div className="row"> 
+                            <div className="col-md-2 resultAdjustment">
+                                <img className="resultImg" src={source} style={{objectFit:"contain"}}></img>
+                            </div>                                                                                   
+                            <div className="col-md-4 resultText" style={{paddingLeft:"10px"}}>
+                                <h5 style={{color:"black"}}>{item.name}</h5>                            
+                                <h5 style={{color:"#bb0b0b"}}>{item.price}</h5>                               
+                            </div>
+                        </div>                                                                                                                            
+                    </NavLink> 
+                    <div className="container" style={{marginBottom:"0px"}}>
+                        <hr></hr>
+                    </div>                                                                       
                 </div>                
             );
         })

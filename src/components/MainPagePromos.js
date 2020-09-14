@@ -20,7 +20,7 @@ class Promos extends Component{
                                 <div style={{textAlign: "center", color:"black"}}>
                                     {item.name}                                
                                 </div> 
-                                <div style={{textAlign: "center", textDecorationLine: "line-through", color:"maroon"}}>
+                                <div style={{textAlign: "center", textDecorationLine: "line-through", color:"#bb0b0b"}}>
                                     <h6>{item.price}</h6>                                
                                 </div>                                                       
                             </CardBody> 
