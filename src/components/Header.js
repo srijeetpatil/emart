@@ -31,42 +31,42 @@ class Header extends Component{
                             <Nav navbar>
                                 <NavItem>                                 
                                     <NavLink className="nav-link basic-font" >
-                                        <Link to={`/result/${1}`} onClick={this.toggleNav}>
+                                        <Link onClick={this.toggleNav}>
                                             <span className="fa fa-plug"></span> Electronics
                                         </Link>
                                     </NavLink>                                                                                                                                                              
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link basic-font" >
-                                        <Link to={`/result/${2}`} onClick={this.toggleNav}>
+                                        <Link onClick={this.toggleNav}>
                                             <span className="fa fa-male"></span> Men
                                         </Link>
                                     </NavLink>                                    
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link basic-font"  >
-                                        <Link to={`/result/${3}`} onClick={this.toggleNav}>
+                                        <Link onClick={this.toggleNav}>
                                             <span className="fa fa-female"></span> Women
                                         </Link>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link basic-font" >
-                                        <Link to={`/result/${4}`} onClick={this.toggleNav}>
+                                        <Link onClick={this.toggleNav}>
                                             <span className="fa fa-child"></span> Kids
                                         </Link>
                                     </NavLink>
                                 </NavItem>    
                                 <NavItem>
                                     <NavLink className="nav-link basic-font" >
-                                        <Link to={`/result/${5}`} onClick={this.toggleNav}>
+                                        <Link onClick={this.toggleNav}>
                                             <span className="fa fa-futbol-o"></span> Sports
                                         </Link>
                                     </NavLink>
                                 </NavItem>   
                                 <NavItem>
                                     <NavLink className="nav-link basic-font" >
-                                        <Link to={`/result/${6}`} onClick={this.toggleNav}>
+                                        <Link onClick={this.toggleNav}>
                                             <span className="fa fa-book"></span> Books
                                         </Link>
                                     </NavLink>

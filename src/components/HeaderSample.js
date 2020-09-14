@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { render } from 'react-dom';
 import DropDown from './DropDownComponent';
 import dropdowndata from '../data/dropdowndata';
+import database from '../data/database';
 
 class HeaderBig extends React.Component{
     
@@ -43,9 +44,9 @@ class HeaderBig extends React.Component{
         }
     }
     render(){
-        const called = (obj) => {                       
+        const called = (num, obj) => {                       
             return(
-                <DropDown object={obj}/>
+                <DropDown number={num} object={obj}/>
             );        
         }
         return(
@@ -66,7 +67,7 @@ class HeaderBig extends React.Component{
                             }}onMouseEnter={() => {                                
                                 return( 
                                     this.setState({
-                                        electronics: called(dropdowndata.electronics)
+                                        electronics: called(0, database.electronics)
                                     }) 
                                 );
                                 }}>  
@@ -88,7 +89,7 @@ class HeaderBig extends React.Component{
                                 }}onMouseEnter={() => {                                
                                     return( 
                                         this.setState({
-                                            men: called(dropdowndata.men)
+                                            men: called(1, database.men)
                                         }) 
                                     );
                                     }}> 
@@ -110,7 +111,7 @@ class HeaderBig extends React.Component{
                                 }}onMouseEnter={() => {                                
                                     return( 
                                         this.setState({
-                                            women: called(dropdowndata.women)
+                                            women: called(2, database.women)
                                         }) 
                                     );
                                     }}>
@@ -132,7 +133,7 @@ class HeaderBig extends React.Component{
                                 }}onMouseEnter={() => {                                
                                     return( 
                                         this.setState({
-                                            kids: called(dropdowndata.kids)
+                                            kids: called(3, database.kids)
                                         }) 
                                     );
                                     }}> 
@@ -154,7 +155,7 @@ class HeaderBig extends React.Component{
                                 }}onMouseEnter={() => {                                
                                     return( 
                                         this.setState({
-                                            sports: called(dropdowndata.sports)
+                                            sports: called(4, database.sports)
                                         }) 
                                     );
                                     }}> 
@@ -176,7 +177,7 @@ class HeaderBig extends React.Component{
                                 }}onMouseEnter={() => {                                
                                     return( 
                                         this.setState({
-                                            books: called(dropdowndata.books)
+                                            books: called(5, database.books)
                                         }) 
                                     );
                                     }}> 

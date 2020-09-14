@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Card, CardImg, CardBody, CardText, Button} from 'reactstrap';
 
 class ItemDetail extends Component{
     constructor(props){

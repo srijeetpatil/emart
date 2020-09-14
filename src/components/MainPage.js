@@ -3,18 +3,28 @@ import Header from './Header';
 import Footer from './Footer';
 import Promos from './MainPagePromos';
 import CarouselComponent from './CarouselComponent';
-import {Switch, Redirect, Route, withRouter} from 'react-router-dom';
+import {Switch, Redirect, Route} from 'react-router-dom';
 import Result from './ResultComponent';
 import ItemDetail from './ItemDetail';
 import database from '../data/database';
 import HeaderBig from './HeaderSample';
+import Filter from './FilterResults';
 
 function Main(){  
-    const sendResult = ({match}) => {                   
+    const sendResult = ({match}) => {  
+        var num = parseInt(match.params.str.slice(0,1));
+        var category = match.params.str.slice(1,);
+        var items = [];
+        if(num === 1 || num === 2 || num === 3){
+            items = Filter(category, num);
+        }                     
+        else{
+            items = Filter(category, null);
+        }        
         return(
-            <div style={{backgroundColor:"white"}}>
-                <Result arr={match.params.arr}/>
-            </div>            
+              <div style={{backgroundColor: "white"}}>
+                  <Result items={items}/>
+              </div>     
         );        
     }
     const sendItem = ({match}) => {
@@ -94,7 +104,7 @@ function Main(){
             {headerMain()}         
             <div>
                 <Switch>                
-                    <Route path="/home" component={() => {
+                    <Route path="/pbl" component={() => {
                         return(
                             <div>  
                                 <div className="carouselItem">
@@ -108,9 +118,9 @@ function Main(){
                             </div>                            
                         );
                         }}/> 
-                    <Route path='/result/:arr' component={sendResult}/>
+                    <Route path='/result/:str' component={sendResult}/>
                     <Route path='/itemDetail/:prod_id' component={sendItem}/>           
-                    <Redirect to="/home"/>                                                               
+                    <Redirect to="/pbl"/>                                                               
                 </Switch>  
             </div>                        
             <Footer/>                                                                                                                                            
