@@ -7,12 +7,10 @@
     margin: 0px auto;     
 }
 .search{
-    border: 2px;
-    outline: 0px;
+    border: 0px;
     border-color: #000000;     
-    height: 60%;  
+    border-radius: 5px 5px 0px 0px;          
     width: 60%;
-    border-radius: 5px 5px 0px 0px;
 }
 .jumbotron{
     margin: 0px auto;    
@@ -39,10 +37,6 @@
     right:0;
     position: static;
 }
-.itemDetail{
-    max-width: 50%;
-    width: auto;    
-}
 .resultImg{
     max-height: 220px;
     max-width: 100%;
@@ -50,6 +44,11 @@
 .resultText{
     max-height: 220px;
     max-width: 100%;
+}
+.itemImage{
+    width: 50%;
+    display: block;
+    margin: auto;
 }
 @media only screen 
   and (min-device-width: 320px) 
@@ -67,14 +66,7 @@
     .carouselImage{
         height: 300px;
         width: 100%;        
-    }        
-    .itemDetail{
-        max-width: 100%;
-        width: auto;  
-    }
-    .itemImage{
-        width: 100%;
-    }
+    }            
     .resultImg{   
         max-width: 100%;    
     }
@@ -84,4 +76,12 @@
     .resultAdjustment{
         max-width: 33%;
     }
+    .search{
+        border: 0px;
+        border-color: #000000;     
+        border-radius: 5px 5px 0px 0px;    
+        display: block;
+        margin: auto;       
+        width: 60%;
+    }    
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Card, CardBody, CardImg, CardSubtitle, CardTitle, Jumbotron, Button, CardLink} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import featured from '../data/featured';
+import Search from './SearchBarComponent';
 
 class Promos extends Component{ 
     constructor(props){
@@ -30,13 +31,8 @@ class Promos extends Component{
             );                      
         });
         return(
-            <div className="container">                
-                    <div className="row" style={{justifyContent:"center", alignItems:"center"}}>
-                        <h1 className="basic-font col-md-3">E MART</h1>
-                        <div className="col-md-6">                                                        
-                            <input className="search" type="text" placeholder="Search not developed yet"></input>                                                       
-                        </div>                        
-                    </div>                                      
+            <div className="container">  
+                <Search/>                                                                                
                 <div className="row" style={{marginTop:"100px", marginBottom:"15px"}}>   
                     <h4 className="col-12 basic-font">Products you might be interested in...</h4>                   
                     {items}

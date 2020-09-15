@@ -9,6 +9,7 @@ import ItemDetail from './ItemDetail';
 import database from '../data/database';
 import HeaderBig from './HeaderSample';
 import Filter from './FilterResults';
+import ScrollToTop from './ScrollToTop';
 
 function Main(){  
     const sendResult = ({match}) => {  
@@ -103,7 +104,8 @@ function Main(){
         <div className="bg">              
             {headerMain()}         
             <div>
-                <Switch>                
+                <Switch>   
+                    <ScrollToTop>             
                     <Route path="/pbl" component={() => {
                         return(
                             <div>  
@@ -120,7 +122,8 @@ function Main(){
                         }}/> 
                     <Route path='/result/:str' component={sendResult}/>
                     <Route path='/itemDetail/:prod_id' component={sendItem}/>           
-                    <Redirect to="/pbl"/>                                                               
+                    <Redirect to="/pbl"/> 
+                    </ScrollToTop>                                                                                  
                 </Switch>  
             </div>                        
             <Footer/>                                                                                                                                            
