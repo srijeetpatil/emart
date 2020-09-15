@@ -1,32 +1,33 @@
 {
   "files": {
-    "main.css": "/pbl/static/css/main.5d67a20b.chunk.css",
-    "main.js": "/pbl/static/js/main.1a64019f.chunk.js",
-    "main.js.map": "/pbl/static/js/main.1a64019f.chunk.js.map",
+    "main.css": "/pbl/static/css/main.def27495.chunk.css",
+    "main.js": "/pbl/static/js/main.d450023f.chunk.js",
+    "main.js.map": "/pbl/static/js/main.d450023f.chunk.js.map",
     "runtime-main.js": "/pbl/static/js/runtime-main.9c351974.js",
     "runtime-main.js.map": "/pbl/static/js/runtime-main.9c351974.js.map",
     "static/css/2.517e9128.chunk.css": "/pbl/static/css/2.517e9128.chunk.css",
-    "static/js/2.10f72f55.chunk.js": "/pbl/static/js/2.10f72f55.chunk.js",
-    "static/js/2.10f72f55.chunk.js.map": "/pbl/static/js/2.10f72f55.chunk.js.map",
+    "static/js/2.d71c9df2.chunk.js": "/pbl/static/js/2.d71c9df2.chunk.js",
+    "static/js/2.d71c9df2.chunk.js.map": "/pbl/static/js/2.d71c9df2.chunk.js.map",
     "index.html": "/pbl/index.html",
-    "precache-manifest.29868fec42f1ec4c66a8130fadbc1b4a.js": "/pbl/precache-manifest.29868fec42f1ec4c66a8130fadbc1b4a.js",
+    "precache-manifest.ab53c0d45e187b27367e7962bc2142df.js": "/pbl/precache-manifest.ab53c0d45e187b27367e7962bc2142df.js",
     "service-worker.js": "/pbl/service-worker.js",
     "static/css/2.517e9128.chunk.css.map": "/pbl/static/css/2.517e9128.chunk.css.map",
-    "static/css/main.5d67a20b.chunk.css.map": "/pbl/static/css/main.5d67a20b.chunk.css.map",
-    "static/js/2.10f72f55.chunk.js.LICENSE.txt": "/pbl/static/js/2.10f72f55.chunk.js.LICENSE.txt",
+    "static/css/main.def27495.chunk.css.map": "/pbl/static/css/main.def27495.chunk.css.map",
+    "static/js/2.d71c9df2.chunk.js.LICENSE.txt": "/pbl/static/js/2.d71c9df2.chunk.js.LICENSE.txt",
     "static/media/card-boxes.jpg": "/pbl/static/media/card-boxes.179ae090.jpg",
+    "static/media/electv1.jpg": "/pbl/static/media/electv1.5c89794a.jpg",
+    "static/media/electv4.jpg": "/pbl/static/media/electv4.ee5b183c.jpg",
+    "static/media/electv5.jpg": "/pbl/static/media/electv5.701292fd.jpg",
     "static/media/font-awesome.css": "/pbl/static/media/fontawesome-webfont.fee66e71.woff",
-    "static/media/iphone.jpg": "/pbl/static/media/iphone.90803e77.jpg",
     "static/media/logo.svg": "/pbl/static/media/logo.5d5d9eef.svg",
     "static/media/online-shopping.jpg": "/pbl/static/media/online-shopping.6cd1b161.jpg",
-    "static/media/sony.jpg": "/pbl/static/media/sony.5c89794a.jpg",
     "static/media/woman.jpg": "/pbl/static/media/woman.8376db9b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.9c351974.js",
     "static/css/2.517e9128.chunk.css",
-    "static/js/2.10f72f55.chunk.js",
-    "static/css/main.5d67a20b.chunk.css",
-    "static/js/main.1a64019f.chunk.js"
+    "static/js/2.d71c9df2.chunk.js",
+    "static/css/main.def27495.chunk.css",
+    "static/js/main.d450023f.chunk.js"
   ]
 }
