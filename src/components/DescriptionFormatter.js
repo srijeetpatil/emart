@@ -1,11 +1,9 @@
-const descriptionFormatter = (string) => {
+const descriptionFormatter = (string, size) => {
     var count = 0;
     var index = string.length;
     for(var i = 0; i < string.length; i++){
-        if(string.charAt(i) === ' '){
-            count++;
-        }
-        if(count > 30){
+        count++;
+        if(count > 140){
             index = i;
             break;
         }

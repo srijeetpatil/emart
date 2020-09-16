@@ -10,7 +10,8 @@ class Result extends Component{
     render(){                
         const array = this.props.items.map((item) => { 
             var source = require('../' + item.image); 
-            let len = descriptionFormatter(item.description); 
+            let width = window.innerWidth;
+            let len = descriptionFormatter(item.description, ); 
             const seemore = () => {
                 if(len < item.description.length){
                     return(
@@ -40,8 +41,8 @@ class Result extends Component{
             );
         })
         return(
-            <div>
-                <Search color={"#f0edf3"}/>
+            <div>            
+                <Search color={"#f0edf3"}/>                                
                 <div style={{paddingTop:"40px"}}>
                     <hr></hr>                               
                     {array}                                

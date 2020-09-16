@@ -1,25 +1,34 @@
 import React, {Component} from 'react';
+import Search from './SearchBarComponent';
+import SimilarProducts from './SimilarProducts';
 
 class ItemDetail extends Component{
     constructor(props){
         super(props);        
     }
-    render(){   
+    render(){           
         var source = require('../' + this.props.item.image);                                      
         return(
-            <div className="container"> 
-                <div className="row" style={{paddingTop:"10px"}}>
-                    <div className="col-md-6">
-                        <img className="itemImage" src={source}></img>
-                    </div>
-                    <div className="col-md-6">
-                        <h4>{this.props.item.name}</h4>
-                        <p><b>Price </b><h5 style={{color:"#bb0b0b"}}>{this.props.item.price}</h5></p>
-                        <h4 className="basic-font">Decription</h4>
-                        <p style={{fontSize:"14px"}}>{this.props.item.description}</p>
-                    </div>
-                </div>                                                                  
-            </div>            
+            <div>                
+                <Search color={"#f0edf3"}/>                              
+                <div className="container">                 
+                    <div className="row" style={{paddingTop:"40px"}}>
+                        <div className="col-md-6">
+                            <img className="itemImage" src={source}></img>
+                        </div>
+                        <div className="col-md-6">                            
+                            <h4>{this.props.item.name}</h4>
+                            <div className="row" style={{backgroundColor:"#f0edf3"}}>
+                                <div className="ml-3" style={{width:"100%"}}>
+                                    <p><b>Price </b><h5 style={{color:"#bb0b0b"}}>{this.props.item.price}</h5></p>
+                                </div>                                                               
+                            </div>                            
+                            <h4 className="basic-font">Decription</h4>
+                            <p style={{fontSize:"14px"}}>{this.props.item.description}</p>
+                        </div>
+                    </div>                                                                  
+                </div>                
+            </div>                        
         );
     }
 }

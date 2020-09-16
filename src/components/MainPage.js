@@ -112,15 +112,13 @@ function Main(){
                                 <div className="carouselItem">
                                     <CarouselComponent/>
                                 </div>                                                                                             
-                                <div>
-                                    <div>
-                                        <Promos/>
-                                    </div>  
+                                <div>                                    
+                                    <Promos/>                                      
                                 </div>                                                                                                               
                             </div>                            
                         );
                         }}/> 
-                    <Route path='/result/:str' component={sendResult}/>
+                    <Route path='/result/:str' component={sendResult} basename={process.env.PUBLIC_URL}/>
                     <Route path='/itemDetail/:prod_id' component={sendItem}/>           
                     <Redirect to="/pbl"/> 
                     </ScrollToTop>                                                                                  

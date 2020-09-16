@@ -49,6 +49,7 @@
     width: 50%;
     display: block;
     margin: auto;
+    object-fit: contain;
 }
 @media only screen 
   and (min-device-width: 320px) 

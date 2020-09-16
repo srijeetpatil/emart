@@ -21,7 +21,7 @@ class Header extends Component{
             <React.Fragment>
                 <Navbar className="nav" expand="lg" dark>                        
                     <NavbarBrand className="mr-auto" href>
-                        <Link to='/home'>
+                        <Link to='/pbl'>
                             <img className="basic-font" src={require('../assets/logo512.png')} height="30" width="41" alt='EMART logo' />
                         </Link>                        
                     </NavbarBrand>
