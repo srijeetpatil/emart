@@ -3,6 +3,7 @@ import {Link, NavLink} from 'react-router-dom';
 import descriptionFormatter from './DescriptionFormatter';
 import Search from './SearchBarComponent';
 
+
 class Result extends Component{
     constructor(props){
         super(props);
@@ -47,7 +48,7 @@ class Result extends Component{
                     <hr></hr>                               
                     {array}                                
                     <hr></hr>
-                </div> 
+                </div>                                
             </div>                                                                                                     
         );
     }

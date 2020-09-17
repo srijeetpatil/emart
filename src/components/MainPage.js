@@ -118,7 +118,7 @@ function Main(){
                             </div>                            
                         );
                         }}/> 
-                    <Route path='/result/:str' component={sendResult} basename={process.env.PUBLIC_URL}/>
+                    <Route path='/result/:str' component={sendResult}/>                                            
                     <Route path='/itemDetail/:prod_id' component={sendItem}/>           
                     <Redirect to="/pbl"/> 
                     </ScrollToTop>                                                                                  
