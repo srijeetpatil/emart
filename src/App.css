@@ -11,6 +11,7 @@
     border-color: #000000;     
     border-radius: 5px 5px 0px 0px;          
     width: 60%;
+    outline: 0px;
 }
 .jumbotron{
     margin: 0px auto;    
@@ -51,6 +52,9 @@
     margin: auto;
     object-fit: contain;
 }
+.similarImage{
+    height: 150px;
+}
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
@@ -83,6 +87,6 @@
         border-radius: 5px 5px 0px 0px;    
         display: block;
         margin: auto;       
-        width: 60%;
+        width: 60%;        
     }    
 }

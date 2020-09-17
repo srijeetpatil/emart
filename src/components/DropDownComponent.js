@@ -8,13 +8,13 @@ class DropDown extends Component{
     constructor(props){
         super(props);               
     }
-    render(){        
+    render(){               
         const list = dropdowndata[this.props.number].map((item) => {  
             var str = this.props.number + item;                                        
             return(
                 <div>  
                     <NavLink>
-                        <Link to={`/result/${str}`}>
+                        <Link to={`/result/${str}`} onClick={this.props.collapse}>
                             <p style={{fontSize:"14px"}}>{item.slice(0)}</p>
                         </Link>
                     </NavLink>                                                                          

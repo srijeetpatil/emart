@@ -26,8 +26,11 @@ class ItemDetail extends Component{
                             <h4 className="basic-font">Decription</h4>
                             <p style={{fontSize:"14px"}}>{this.props.item.description}</p>
                         </div>
-                    </div>                                                                  
-                </div>                
+                    </div>                                                                                      
+                </div>     
+                <div style={{minHeight:"250px",display:"flex", paddingLeft:"15px", paddingRight:"15px"}}>                    
+                    <SimilarProducts category={this.props.item.category} ignore={this.props.item.prod_id}/>
+                </div>           
             </div>                        
         );
     }

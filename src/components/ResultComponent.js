@@ -10,9 +10,8 @@ class Result extends Component{
     }    
     render(){                
         const array = this.props.items.map((item) => { 
-            var source = require('../' + item.image); 
-            let width = window.innerWidth;
-            let len = descriptionFormatter(item.description, ); 
+            var source = require('../' + item.image);             
+            let len = descriptionFormatter(item.description); 
             const seemore = () => {
                 if(len < item.description.length){
                     return(

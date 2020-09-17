@@ -1,4 +1,4 @@
-const descriptionFormatter = (string, size) => {
+const descriptionFormatter = (string) => {
     var count = 0;
     var index = string.length;
     for(var i = 0; i < string.length; i++){
