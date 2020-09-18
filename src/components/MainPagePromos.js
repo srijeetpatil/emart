@@ -31,7 +31,7 @@ class Promos extends Component{
             );                      
         });
         return(
-            <div className="container">  
+            <div className="container">                                
                 <Search/>                                                                                
                 <div className="row" style={{marginTop:"100px", marginBottom:"15px"}}>   
                     <h4 className="col-12 basic-font">Products you might be interested in...</h4>                   

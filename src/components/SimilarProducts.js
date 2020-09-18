@@ -1,5 +1,6 @@
 import React from 'react';
 import database from '../data/database';
+import {Link} from 'react-router-dom';
 
 // Should be changed to a more optimised method
 // will be used later
@@ -39,21 +40,19 @@ function SimilarProducts(props){
     const similar = items.map((i) => {
         let source = require('../' + i.image);
         return(            
-            <div style={{marginLeft:"15px", width:"20%"}}>
-                <img className="similarImage" src={source} style={{objectFit:"contain", width:"100%"}}></img>
-                <h6><b>{i.name}</b></h6>
-                <p style={{color:"#bb0b0b"}}>{i.price}</p>
+            <div className="nav-link similar" style={{marginLeft:"15px"}}>
+                <Link style={{textDecoration:"none"}} to={`/itemDetail/${i.prod_id}`}>
+                    <img src={source} style={{objectFit:"contain", width:"100%", height:"100%"}}></img>
+                    <h6 style={{color:"black"}}><b>{i.name}</b></h6>
+                    <p style={{color:"#bb0b0b"}}>{i.price}</p>
+                </Link>                
             </div>                       
         );
     });
-    return(
-        <div>
-            <h4>Similar Products</h4> 
-            <hr></hr>           
-            <div className="row">            
-                {similar}
-            </div>
-        </div>        
+    return(                               
+        <div className="row">            
+            {similar}
+        </div>                
     );
 
 }

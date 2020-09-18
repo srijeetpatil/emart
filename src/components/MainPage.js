@@ -10,6 +10,7 @@ import database from '../data/database';
 import HeaderBig from './HeaderSample';
 import Filter from './FilterResults';
 import ScrollToTop from './ScrollToTop';
+import LoginComponent from './LoginComponent';
 
 function Main(){  
     const sendResult = ({match}) => {  
@@ -102,7 +103,10 @@ function Main(){
     }
     return (        
         <div className="bg">              
-            {headerMain()}         
+            {headerMain()} 
+            <div style={{height: "0px"}}>
+                <LoginComponent/> 
+            </div>                                            
             <div>
                 <Switch>   
                     <ScrollToTop>             

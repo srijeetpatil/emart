@@ -56,7 +56,7 @@ class HeaderBig extends React.Component{
                     <Link to='/pbl'>
                         <img className="basic-font" src={require('../assets/logo512.png')} height="30" width="41" alt='EMART logo' />
                     </Link>                        
-                </div>
+                </div>                
                 <div className="container" style={{paddingTop:"10px", paddingBottom:"10px"}}>             
                     <div className="row">                                    
                         <div style={{marginLeft:"10px"}}>
@@ -190,9 +190,16 @@ class HeaderBig extends React.Component{
                                     {this.state.books}       
                                 </div>                   
                             </div>
-                        </div>
+                        </div>                                                                        
                     </div>                                                                                                                                                                  
                 </div>
+                <div style={{margin:"auto"}}>   
+                    <NavLink outline className="basic-font nav-link">
+                        <Link>
+                            <span className="fa fa-sign-in fa-lg"></span> Login
+                        </Link>                                    
+                    </NavLink>
+                </div>                 
             </div>                                                                                                                          
         </nav>
         );

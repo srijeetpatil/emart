@@ -56,13 +56,28 @@ class Header extends Component{
             <React.Fragment>
                 <Navbar className="nav" expand="lg" dark>                        
                     <NavbarBrand className="mr-auto" href>
-                        <Link to='/pbl'>
+                        <Link to='/pbl' onClick={() => {
+                            if(this.state.isNavOpen){
+                                return(
+                                    this.setState({
+                                        isNavOpen : false
+                                    })
+                                );
+                            }
+                        }}>
                             <img className="basic-font" src={require('../assets/logo512.png')} height="30" width="41" alt='EMART logo' />
                         </Link>                        
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggleNav}/>
                     <div className="container"> 
-                    <Collapse isOpen={this.state.isNavOpen} navbar>                                                                     
+                    <Collapse isOpen={this.state.isNavOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                <NavLink outline className="basic-font nav-link">
+                                    <Link>
+                                        <span className="fa fa-sign-in fa-lg"></span> Login
+                                    </Link>                                    
+                                </NavLink>                            
+                            </Nav>                                                                     
                             <Nav navbar>
                                 <NavItem>                                 
                                     <NavLink className="nav-link basic-font" >
@@ -136,12 +151,7 @@ class Header extends Component{
                                         <DropDown number={5} collapse={this.toggleNav}/>
                                     </Collapse> 
                                 </NavItem>                                                  
-                            </Nav> 
-                            <Nav className="ml-auto" navbar>
-                                <Button outline className="basic-font">
-                                    <span className="fa fa-sign-in fa-lg"></span> Login
-                                </Button>                            
-                            </Nav> 
+                            </Nav>                              
                         </Collapse>                                                                                                     
                     </div>                        
                 </Navbar>                  
