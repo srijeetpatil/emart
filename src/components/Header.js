@@ -73,7 +73,12 @@ class Header extends Component{
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavLink outline className="basic-font nav-link">
-                                    <Link>
+                                    <Link onClick={() => {
+                                        this.toggleNav()
+                                        return(
+                                            this.props.loginClicked()
+                                        );
+                                    }}>
                                         <span className="fa fa-sign-in fa-lg"></span> Login
                                     </Link>                                    
                                 </NavLink>                            

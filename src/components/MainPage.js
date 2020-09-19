@@ -12,8 +12,20 @@ import Filter from './FilterResults';
 import ScrollToTop from './ScrollToTop';
 import LoginComponent from './LoginComponent';
 
-function Main(){  
-    const sendResult = ({match}) => {  
+class Main extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            login : () => {
+                return(
+                    <div id="loginBox"></div>
+                );
+            }
+        }
+        this.loginClicked = this.loginClicked.bind(this);
+        this.loginCancelled = this.loginCancelled.bind(this);
+    }  
+    sendResult({match}){  
         var num = parseInt(match.params.str.slice(0,1));
         var category = match.params.str.slice(1,);
         var items = [];
@@ -29,7 +41,7 @@ function Main(){
               </div>     
         );        
     }
-    const sendItem = ({match}) => {
+    sendItem({match}){
         var prodId = match.params.prod_id.slice(0, 4);
         var item;       
         if(prodId === "elec"){
@@ -91,46 +103,72 @@ function Main(){
                 <ItemDetail item={item}/>
             </div>            
         );
-    }   
-    var width = window.innerWidth;
-    const headerMain = () => {
+    }       
+    headerMain(){
+        var width = window.innerWidth;
         if(width > 768){
-            return(<HeaderBig/>);
+            return(<HeaderBig loginClicked={this.loginClicked}/>);
         }
         else{
-            return(<Header/>);
+            return(<Header loginClicked={this.loginClicked}/>);
         }
     }
-    return (        
-        <div className="bg">              
-            {headerMain()} 
-            <div style={{height: "0px"}}>
-                <LoginComponent/> 
-            </div>                                            
-            <div>
-                <Switch>   
-                    <ScrollToTop>             
-                    <Route path="/pbl" component={() => {
-                        return(
-                            <div>  
-                                <div className="carouselItem">
-                                    <CarouselComponent/>
-                                </div>                                                                                             
-                                <div>                                    
-                                    <Promos/>                                      
-                                </div>                                                                                                               
-                            </div>                            
-                        );
-                        }}/> 
-                    <Route path='/result/:str' component={sendResult}/>                                            
-                    <Route path='/itemDetail/:prod_id' component={sendItem}/>           
-                    <Redirect to="/pbl"/> 
-                    </ScrollToTop>                                                                                  
-                </Switch>  
-            </div>                        
-            <Footer/>                                                                                                                                            
-        </div>
-    );
+    loginClicked(){             
+        return(
+            this.setState({
+                login : () => {
+                    return(
+                        <div>
+                            <LoginComponent/>
+                        </div>                        
+                    );                    
+                }
+            })                       
+        );
+    }
+    loginCancelled(){
+        return(
+            this.setState({
+                login: () => {
+                    return(
+                        <div></div>
+                    );
+                }
+            })
+        );
+    }
+    render(){       
+        return (        
+            <div className="bg">              
+                {this.headerMain()} 
+                <div style={{height: "0px"}}>
+                    {this.state.login()} 
+                </div>                                            
+                <div>
+                    <Switch>   
+                        <ScrollToTop>             
+                        <Route path="/pbl" component={() => {
+                            return(
+                                <div>  
+                                    <div className="carouselItem">
+                                        <CarouselComponent/>
+                                    </div>                                                                                             
+                                    <div>                                    
+                                        <Promos/>                                      
+                                    </div>                                                                                                               
+                                </div>                            
+                            );
+                            }}/> 
+                        <Route path='/result/:str' component={this.sendResult}/>                                            
+                        <Route path='/itemDetail/:prod_id' component={this.sendItem}/>           
+                        <Redirect to="/pbl"/> 
+                        </ScrollToTop>                                                                                  
+                    </Switch>  
+                </div>                        
+                <Footer/>                                                                                                                                            
+            </div>
+        );
+    }
 }
 
 export default Main;

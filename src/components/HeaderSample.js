@@ -195,7 +195,11 @@ class HeaderBig extends React.Component{
                 </div>
                 <div style={{margin:"auto"}}>   
                     <NavLink outline className="basic-font nav-link">
-                        <Link>
+                        <Link onClick={() => {
+                            return(
+                                this.props.loginClicked()
+                            );
+                        }}>
                             <span className="fa fa-sign-in fa-lg"></span> Login
                         </Link>                                    
                     </NavLink>
