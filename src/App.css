@@ -58,17 +58,21 @@
     object-fit: contain;   
 }
 @keyframes login{
-    0% {top: -200px; left: auto; right: auto;}
-    100%{top: 0px; left: auto; right: auto;}
+    0% {top: 0px; left: auto; right: auto;}
+    100%{top: 200px; left: auto; right: auto;}
 }
 .loginObject{
-    position: relative;
+    position: fixed;
     background-color: black;
     animation-name: login;
     animation-duration: 500ms;
     z-index: 10;
     width: 30%;
     border-radius: 10px;
+    margin-left: 35%;
+}
+div[disabled]{
+    pointer-events: none;
 }
 @media only screen 
   and (min-device-width: 320px) 
@@ -109,11 +113,15 @@
         width: 20%;    
     } 
     .loginObject{
-        position: relative;
+        position: fixed;
         background-color: black;
         animation-name: login;
         animation-duration: 1s;
         z-index: 10;
         width: 80%;
+        margin-left: 10%;
+    }
+    div[disabled]{
+        pointer-events: none;
     }
 }

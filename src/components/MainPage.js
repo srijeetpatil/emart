@@ -18,12 +18,13 @@ class Main extends React.Component{
         this.state = {
             login : () => {
                 return(
-                    <div id="loginBox"></div>
+                    null
                 );
-            }
+            },
+            disabled: false            
         }
-        this.loginClicked = this.loginClicked.bind(this);
-        this.loginCancelled = this.loginCancelled.bind(this);
+        this.loginClicked = this.loginClicked.bind(this); 
+        this.loginCancelled = this.loginCancelled.bind(this);       
     }  
     sendResult({match}){  
         var num = parseInt(match.params.str.slice(0,1));
@@ -113,13 +114,16 @@ class Main extends React.Component{
             return(<Header loginClicked={this.loginClicked}/>);
         }
     }
-    loginClicked(){             
+    loginClicked(){ 
+        this.setState({
+            disabled: true
+        });                           
         return(
             this.setState({
                 login : () => {
                     return(
-                        <div>
-                            <LoginComponent/>
+                        <div id="loginBox">
+                            <LoginComponent loginCancelled={this.loginCancelled}/>
                         </div>                        
                     );                    
                 }
@@ -127,24 +131,27 @@ class Main extends React.Component{
         );
     }
     loginCancelled(){
+        this.setState({
+            disabled: false
+        });
         return(
             this.setState({
                 login: () => {
-                    return(
-                        <div></div>
-                    );
+                    return(null);
                 }
             })
         );
-    }
-    render(){       
+    }    
+    render(){               
         return (        
-            <div className="bg">              
-                {this.headerMain()} 
+            <div className="bg"> 
+                <div disabled={this.state.disabled}>
+                    {this.headerMain()}
+                </div>                              
                 <div style={{height: "0px"}}>
-                    {this.state.login()} 
+                    {this.state.login()}                                        
                 </div>                                            
-                <div>
+                <div disabled={this.state.disabled}>
                     <Switch>   
                         <ScrollToTop>             
                         <Route path="/pbl" component={() => {
@@ -164,8 +171,10 @@ class Main extends React.Component{
                         <Redirect to="/pbl"/> 
                         </ScrollToTop>                                                                                  
                     </Switch>  
-                </div>                        
-                <Footer/>                                                                                                                                            
+                </div>
+                <div disabled={this.state.disabled}>
+                    <Footer/> 
+                </div>                                                                                                                                                                                   
             </div>
         );
     }
