@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0251654a425e0e50137248819d22688b",
+    "revision": "1fb8954a155aa87d3c89c0f4f6e59c6c",
     "url": "/pbl/index.html"
   },
   {
-    "revision": "80ff2d85fdc68eccce5d",
+    "revision": "a5375b5f863c1d7132e8",
     "url": "/pbl/static/css/2.517e9128.chunk.css"
   },
   {
-    "revision": "f20f0ef5126d476bf2dd",
-    "url": "/pbl/static/css/main.5d8742dd.chunk.css"
+    "revision": "3f1b7d2d60637f3e211b",
+    "url": "/pbl/static/css/main.41121114.chunk.css"
   },
   {
-    "revision": "80ff2d85fdc68eccce5d",
-    "url": "/pbl/static/js/2.c6f30e44.chunk.js"
+    "revision": "a5375b5f863c1d7132e8",
+    "url": "/pbl/static/js/2.96eedf32.chunk.js"
   },
   {
     "revision": "9d226f5d128ebd9399b83c1a0d67574c",
-    "url": "/pbl/static/js/2.c6f30e44.chunk.js.LICENSE.txt"
+    "url": "/pbl/static/js/2.96eedf32.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f20f0ef5126d476bf2dd",
-    "url": "/pbl/static/js/main.dac086ac.chunk.js"
+    "revision": "3f1b7d2d60637f3e211b",
+    "url": "/pbl/static/js/main.3e003ec9.chunk.js"
   },
   {
     "revision": "ef361c4093c7c79ef550",
@@ -32,8 +32,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pbl/static/media/card-boxes.179ae090.jpg"
   },
   {
-    "revision": "5c89794aab1bd10f2e9145bee8b25209",
-    "url": "/pbl/static/media/electv1.5c89794a.jpg"
+    "revision": "b824f8d7e79a7db18f1fe5b7859002e2",
+    "url": "/pbl/static/media/elecoven1.b824f8d7.jpg"
+  },
+  {
+    "revision": "147d8d29bb1550003b7240045880bba2",
+    "url": "/pbl/static/media/elecoven2.147d8d29.jpg"
+  },
+  {
+    "revision": "b3de71b8b6a8647b3c1961e84c45c09a",
+    "url": "/pbl/static/media/elecphone1.b3de71b8.jpg"
+  },
+  {
+    "revision": "4f820fa329fa95109cd90edb708624ec",
+    "url": "/pbl/static/media/elecrefregirator1.4f820fa3.jpg"
+  },
+  {
+    "revision": "acbb95f16935bb5ea523746bc9a3720f",
+    "url": "/pbl/static/media/elecrefregirator2.acbb95f1.jpg"
+  },
+  {
+    "revision": "763cee5dbe3ec1982d0887a839a5bb5b",
+    "url": "/pbl/static/media/elecrefregirator3.763cee5d.jpg"
+  },
+  {
+    "revision": "557231f0fb86970ac35dd441e49c6cd0",
+    "url": "/pbl/static/media/electv1.557231f0.jpg"
   },
   {
     "revision": "ee5b183c95703a592760ddf7e6b233eb",
@@ -42,6 +66,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "701292fdb6d5c064cdf122876eafba20",
     "url": "/pbl/static/media/electv5.701292fd.jpg"
+  },
+  {
+    "revision": "96bafbfe170206f9edcc2b0443f0a046",
+    "url": "/pbl/static/media/elecwashingmc1.96bafbfe.jpg"
   },
   {
     "revision": "674f50d287a8c48dc19ba404d20fe713",
@@ -68,11 +96,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pbl/static/media/logo.5d5d9eef.svg"
   },
   {
+    "revision": "0b64e7f5ace311d46d8af92af588e6d2",
+    "url": "/pbl/static/media/mensclothes1.0b64e7f5.jpg"
+  },
+  {
     "revision": "6cd1b16197381c62713871be787f073e",
     "url": "/pbl/static/media/online-shopping.6cd1b161.jpg"
   },
   {
     "revision": "8376db9b7fee74b39b18c4cdecf60f6f",
     "url": "/pbl/static/media/woman.8376db9b.jpg"
+  },
+  {
+    "revision": "21a0c5a5f26bf9246f927a876fb02636",
+    "url": "/pbl/static/media/womeclothes1.21a0c5a5.jpg"
   }
 ]);
