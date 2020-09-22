@@ -34,11 +34,12 @@ class ItemDetail extends Component{
                         </div>
                     </div>                                                                                      
                 </div>    
-                <h4>Similar Products</h4> 
+                <h4 style={{textAlign:"center"}}>Similar Products</h4> 
                 <hr></hr> 
-                <div style={{minHeight:"250px",display:"flex", paddingLeft:"15px", paddingRight:"15px"}}>                                        
+                <div style={{display:"flex"}}>                                        
                     <SimilarProducts category={this.props.item.category} ignore={this.props.item.prod_id}/>
-                </div>           
+                </div> 
+                <hr></hr>          
             </div>                        
         );
     }

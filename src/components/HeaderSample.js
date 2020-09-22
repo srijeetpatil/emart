@@ -53,7 +53,7 @@ class HeaderBig extends React.Component{
         <nav style={{height:"fit-content", backgroundColor:"black"}}> 
             <div className="row" style={{width:"100%"}}>
                 <div style={{margin:"auto"}}>
-                    <Link to='/pbl'>
+                    <Link to='/emart'>
                         <img className="basic-font" src={require('../assets/logo512.png')} height="30" width="41" alt='EMART logo' />
                     </Link>                        
                 </div>                

@@ -1,6 +1,7 @@
 import React from 'react';
 import database from '../data/database';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import {Card, CardBody, CardImg} from 'reactstrap';
 
 // Should be changed to a more optimised method
 // will be used later
@@ -39,18 +40,26 @@ function SimilarProducts(props){
     }      
     const similar = items.map((i) => {
         let source = require('../' + i.image);
-        return(            
-            <div className="nav-link similar" style={{marginLeft:"15px"}}>
-                <Link style={{textDecoration:"none"}} to={`/itemDetail/${i.prod_id}`}>
-                    <img src={source} style={{objectFit:"contain", width:"100%", height:"100%"}}></img>
-                    <h6 style={{color:"black"}}><b>{i.name}</b></h6>
-                    <p style={{color:"#bb0b0b"}}>{i.price}</p>
-                </Link>                
-            </div>                       
+        return(                                                                          
+            <div className="cardItem" style={{overflow:"hidden"}}>                    
+                <Card style={{borderRadius:"0px"}}>
+                    <NavLink style={{textDecoration:"none"}} to={`/itemDetail/${i.prod_id}`}>                                                                             
+                        <CardBody style={{height:"250px"}}>                            
+                            <CardImg style={{objectFit:"contain", height:"60%"}} src={source}></CardImg>                                
+                            <div style={{textAlign: "center", color:"black"}}>
+                                <p style={{fontSize:"12px"}}><b>{i.name}</b></p>                                
+                            </div> 
+                            <div style={{textAlign: "center", color:"#bb0b0b"}}>
+                                <h6>{i.price}</h6>                                
+                            </div>                                                       
+                        </CardBody>
+                    </NavLink>                                                                          
+                </Card>                    
+            </div>                                                                  
         );
     });
     return(                               
-        <div className="row">            
+        <div className="container" style={{marginLeft:"10%", marginRight:"10%", marginBottom:"10px"}}>            
             {similar}
         </div>                
     );

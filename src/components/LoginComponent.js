@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-function LoginComponent(props){
+function LoginComponent(props){    
     return(
         <div style={{width:"100%", paddingTop:"100px"}}>
             <div className="loginObject"> 

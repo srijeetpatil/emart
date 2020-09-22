@@ -154,7 +154,7 @@ class Main extends React.Component{
                 <div disabled={this.state.disabled}>
                     <Switch>   
                         <ScrollToTop>             
-                        <Route path="/pbl" component={() => {
+                        <Route path="/emart" component={() => {
                             return(
                                 <div>  
                                     <div className="carouselItem">
@@ -167,8 +167,8 @@ class Main extends React.Component{
                             );
                             }}/> 
                         <Route path='/result/:str' component={this.sendResult}/>                                            
-                        <Route path='/itemDetail/:prod_id' component={this.sendItem}/>           
-                        <Redirect to="/pbl"/> 
+                        <Route path='/itemDetail/:prod_id' component={this.sendItem}/>                                 
+                        <Redirect to="/emart"/> 
                         </ScrollToTop>                                                                                  
                     </Switch>  
                 </div>

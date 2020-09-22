@@ -26,7 +26,7 @@ const featured = [
         "name":"Mens Denim Jacket",        
         "description": "Care Instructions: machine wash T jacket Solid T jacket",
         "price":"₹1999",
-        "image":"assets/denim.jpg",
+        "image":"assets/mensclothes1.jpg",
         "prod_id": "mensclothes1"
     }
 ]

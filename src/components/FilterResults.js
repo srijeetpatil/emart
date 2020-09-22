@@ -3,6 +3,7 @@ import database from '../data/database';
 
 function Filter(category, physicalAttribute){
     var items = [];
+    console.log(category);
     if(physicalAttribute === null){
         for(var i = 0; i < database.electronics.length; i++){
             if(database.electronics[i].category === category){

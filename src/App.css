@@ -27,7 +27,7 @@
     width:100%;
 }
 .cardItem{
-    width:24%;
+    width: 24%;
     float: left;
     margin-left: 5px;
     margin-top: 5px;   
@@ -51,11 +51,6 @@
     display: block;
     margin: auto;
     object-fit: contain;
-}
-.similar{
-    width: 20%;
-    height: 150px; 
-    object-fit: contain;   
 }
 @keyframes login{
     0% {top: 0px; left: auto; right: auto;}
@@ -106,7 +101,8 @@ div[disabled]{
         border-radius: 5px 5px 0px 0px;    
         display: block;
         margin: auto;       
-        width: 60%;        
+        width: 60%;
+        margin-bottom: 10px;        
     }   
     .similar{
         height: 100px;
