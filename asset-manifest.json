@@ -1,42 +1,26 @@
 {
   "files": {
     "main.css": "/pbl/static/css/main.41121114.chunk.css",
-    "main.js": "/pbl/static/js/main.3e003ec9.chunk.js",
-    "main.js.map": "/pbl/static/js/main.3e003ec9.chunk.js.map",
+    "main.js": "/pbl/static/js/main.b375f292.chunk.js",
+    "main.js.map": "/pbl/static/js/main.b375f292.chunk.js.map",
     "runtime-main.js": "/pbl/static/js/runtime-main.9c351974.js",
     "runtime-main.js.map": "/pbl/static/js/runtime-main.9c351974.js.map",
     "static/css/2.517e9128.chunk.css": "/pbl/static/css/2.517e9128.chunk.css",
-    "static/js/2.96eedf32.chunk.js": "/pbl/static/js/2.96eedf32.chunk.js",
-    "static/js/2.96eedf32.chunk.js.map": "/pbl/static/js/2.96eedf32.chunk.js.map",
+    "static/js/2.a10c3381.chunk.js": "/pbl/static/js/2.a10c3381.chunk.js",
+    "static/js/2.a10c3381.chunk.js.map": "/pbl/static/js/2.a10c3381.chunk.js.map",
     "index.html": "/pbl/index.html",
-    "precache-manifest.1af62e85902eb3c47d794e51d90474e8.js": "/pbl/precache-manifest.1af62e85902eb3c47d794e51d90474e8.js",
+    "precache-manifest.0094ccb4849f809363a94df0361e3e78.js": "/pbl/precache-manifest.0094ccb4849f809363a94df0361e3e78.js",
     "service-worker.js": "/pbl/service-worker.js",
     "static/css/2.517e9128.chunk.css.map": "/pbl/static/css/2.517e9128.chunk.css.map",
     "static/css/main.41121114.chunk.css.map": "/pbl/static/css/main.41121114.chunk.css.map",
-    "static/js/2.96eedf32.chunk.js.LICENSE.txt": "/pbl/static/js/2.96eedf32.chunk.js.LICENSE.txt",
-    "static/media/card-boxes.jpg": "/pbl/static/media/card-boxes.179ae090.jpg",
-    "static/media/elecoven1.jpg": "/pbl/static/media/elecoven1.b824f8d7.jpg",
-    "static/media/elecoven2.jpg": "/pbl/static/media/elecoven2.147d8d29.jpg",
-    "static/media/elecphone1.jpg": "/pbl/static/media/elecphone1.b3de71b8.jpg",
-    "static/media/elecrefregirator1.jpg": "/pbl/static/media/elecrefregirator1.4f820fa3.jpg",
-    "static/media/elecrefregirator2.jpg": "/pbl/static/media/elecrefregirator2.acbb95f1.jpg",
-    "static/media/elecrefregirator3.jpg": "/pbl/static/media/elecrefregirator3.763cee5d.jpg",
-    "static/media/electv1.jpg": "/pbl/static/media/electv1.557231f0.jpg",
-    "static/media/electv4.jpg": "/pbl/static/media/electv4.ee5b183c.jpg",
-    "static/media/electv5.jpg": "/pbl/static/media/electv5.701292fd.jpg",
-    "static/media/elecwashingmc1.jpg": "/pbl/static/media/elecwashingmc1.96bafbfe.jpg",
-    "static/media/font-awesome.css": "/pbl/static/media/fontawesome-webfont.fee66e71.woff",
-    "static/media/logo.svg": "/pbl/static/media/logo.5d5d9eef.svg",
-    "static/media/mensclothes1.jpg": "/pbl/static/media/mensclothes1.0b64e7f5.jpg",
-    "static/media/online-shopping.jpg": "/pbl/static/media/online-shopping.6cd1b161.jpg",
-    "static/media/woman.jpg": "/pbl/static/media/woman.8376db9b.jpg",
-    "static/media/womeclothes1.jpg": "/pbl/static/media/womeclothes1.21a0c5a5.jpg"
+    "static/js/2.a10c3381.chunk.js.LICENSE.txt": "/pbl/static/js/2.a10c3381.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.css": "/pbl/static/media/fontawesome-webfont.fee66e71.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.9c351974.js",
     "static/css/2.517e9128.chunk.css",
-    "static/js/2.96eedf32.chunk.js",
+    "static/js/2.a10c3381.chunk.js",
     "static/css/main.41121114.chunk.css",
-    "static/js/main.3e003ec9.chunk.js"
+    "static/js/main.b375f292.chunk.js"
   ]
 }
