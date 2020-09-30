@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {NavLink} from 'reactstrap';
 import dropdowndata from '../data/dropdowndata';
-import database from '../data/database';
 
 class DropDown extends Component{
     constructor(props){

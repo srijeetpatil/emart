@@ -1,45 +1,18 @@
 import React from 'react';
-import database from '../data/database';
+import {baseurl} from '../data/baseurl';
 import {NavLink} from 'react-router-dom';
 import {Card, CardBody, CardImg} from 'reactstrap';
 
-// Should be changed to a more optimised method
-// will be used later
 function SimilarProducts(props){
     var category = props.category;
-    var items = [];
-    for(var i = 0; i < database.electronics.length; i++){
-        if(database.electronics[i].category === category && database.electronics[i].prod_id !== props.ignore){
-            items = items.concat([database.electronics[i]]);        
+    var items = [];    
+    for(var i = 0; i < props.mainCategory.length; i++){
+        if(props.mainCategory[i].category === category && props.mainCategory[i].prod_id !== props.ignore){
+            items = items.concat([props.mainCategory[i]]);        
         }
-    }   
-    for(var i = 0; i < database.men.length; i++){
-        if(database.men[i].category === category && database.men[i].prod_id !== props.ignore){
-            items = items.concat([database.men[i]]);
-        }
-    }
-    for(var i = 0; i < database.women.length; i++){
-        if(database.women[i].category === category && database.women[i].prod_id !== props.ignore){
-            items = items.concat([database.women[i]]);
-        }
-    }
-    for(var i = 0; i < database.kids.length; i++){
-        if(database.kids[i].category === category && database.kids[i].prod_id !== props.ignore){
-            items = items.concat([database.kids[i]]);
-        }
-    }
-    for(var i = 0; i < database.sports.length; i++){
-        if(database.sports[i].category === category && database.sports[i].prod_id !== props.ignore){
-            items = items.concat([database.sports[i]]);
-        }
-    }
-    for(var i = 0; i < database.books.length; i++){
-        if(database.books[i].category === category && database.books[i].prod_id !== props.ignore){
-            items = items.concat([database.books[i]]);
-        }
-    }      
+    }            
     const similar = items.map((i) => {
-        let source = require('../' + i.image);
+        let source = baseurl + i.image;
         return(                                                                          
             <div className="cardItem" style={{overflow:"hidden"}}>                    
                 <Card style={{borderRadius:"0px"}}>

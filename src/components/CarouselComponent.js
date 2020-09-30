@@ -1,15 +1,20 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {Carousel,
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
     CarouselCaption} from 'reactstrap';
-import {carouselItems} from '../data/carouselItems';
+
+import {baseurl} from '../data/baseurl';
 
 const CarouselComponent = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
-    var items = carouselItems;   
+    const [items, setItems] = useState([]); 
+
+    useEffect(() => {
+        setItems(props.items);     
+    }, []);          
 
     const next = () => {
         if(animating){
@@ -31,7 +36,7 @@ const CarouselComponent = (props) => {
       }
 
     const slides = items.map((item) => {
-    const source = require('../assets/carousel/' + item.src);
+    const source = baseurl + item.src;
     return (
         <CarouselItem
         onExiting={() => setAnimating(true)}

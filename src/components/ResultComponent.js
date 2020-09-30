@@ -2,15 +2,24 @@ import React, {Component} from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import descriptionFormatter from './DescriptionFormatter';
 import Search from './SearchBarComponent';
-
+import {baseurl} from '../data/baseurl';
 
 class Result extends Component{
     constructor(props){
-        super(props);
-    }    
-    render(){                
-        const array = this.props.items.map((item) => { 
-            var source = require('../' + item.image);             
+        super(props);        
+    }       
+    render(){         
+        var category = this.props.category;
+        var items = [];   
+        
+        for(var i = 0; i < this.props.results.length; i++){
+            if(this.props.results[i].category === category){
+                items = items.concat([this.props.results[i]]);
+            }
+        }
+
+        const array = items.map((item) => { 
+            var source = baseurl + item.image;             
             let len = descriptionFormatter(item.description); 
             const seemore = () => {
                 if(len < item.description.length){

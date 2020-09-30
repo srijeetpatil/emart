@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import { render } from 'react-dom';
 import DropDown from './DropDownComponent';
 import dropdowndata from '../data/dropdowndata';
-import database from '../data/database';
 
 class HeaderBig extends React.Component{
     

@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import {Card, CardBody, CardImg, CardSubtitle, CardTitle, Jumbotron, Button, CardLink} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
-import featured from '../data/featured';
 import Search from './SearchBarComponent';
+import {baseurl} from '../data/baseurl';
 
 class Promos extends Component{ 
     constructor(props){
-        super(props);
-    }     
-    render(){
-        const arr = featured;
-        const items = arr.map((item) => {
-            var source = require('../' + item.image);                        
+        super(props);        
+    }        
+    render(){         
+            var arr = this.props.arr;                                                                 
+            const items = arr.map((item) => {
+            var source = baseurl + item.image;                        
             return(
                 <div className="mt-2 cardItem">                    
                     <Card style={{height:"100%", borderRadius:"0px"}}>
@@ -21,7 +21,7 @@ class Promos extends Component{
                                 <div style={{textAlign: "center", color:"black"}}>
                                     {item.name}                                
                                 </div> 
-                                <div style={{textAlign: "center", textDecorationLine: "line-through", color:"#bb0b0b"}}>
+                                <div style={{textAlign: "center", color:"#bb0b0b"}}>
                                     <h6>{item.price}</h6>                                
                                 </div>                                                       
                             </CardBody> 
