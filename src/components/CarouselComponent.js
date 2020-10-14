@@ -1,11 +1,7 @@
 import React, {Component, useState, useEffect} from 'react';
 import {Carousel,
     CarouselItem,
-    CarouselControl,
-    CarouselIndicators,
-    CarouselCaption} from 'reactstrap';
-
-import {baseurl} from '../data/baseurl';
+    CarouselControl} from 'reactstrap';
 
 const CarouselComponent = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -36,14 +32,14 @@ const CarouselComponent = (props) => {
       }
 
     const slides = items.map((item) => {
-    const source = baseurl + item.src;
+    const source = item.src;
     return (
         <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={source}
         >
-            <img src={source} alt={item.altText} className="carouselImage"/>            
+            <img src={source} className="carouselImage"/>            
         </CarouselItem>
     );
     });

@@ -1,10 +1,10 @@
 import * as ActionTypes from './ActionTypes';
 import {baseurl} from '../data/baseurl';
+import database from '../data/database';
 
 export const fetchFeatured = (dispatch) => {
-    return fetch(baseurl + 'featured')
-        .then(response => response.json())
-        .then(featured => dispatch(addFeatured(featured)))
+    return database.get("featured.json")       
+        .then(featured => dispatch(addFeatured(featured.data)))
 };
 
 export const addFeatured = (featured) => ({
@@ -13,9 +13,8 @@ export const addFeatured = (featured) => ({
 });
 
 export const fetchCarousel = (dispatch) => {
-    return fetch(baseurl + 'carouselItems')
-        .then(response => response.json())
-        .then(carouselItems => dispatch(addCarousel(carouselItems)))
+    return database.get("carouselItems.json")               
+        .then((carouselItems) => dispatch(addCarousel(carouselItems.data)))
 }
 
 export const addCarousel = (carouselItems) => ({
@@ -24,9 +23,10 @@ export const addCarousel = (carouselItems) => ({
 }) 
 
 export const fetchResults = (category) => (dispatch) => {
-    return fetch(baseurl + category)
-    .then(response => response.json())
-    .then(cat => dispatch(addResults(cat)))
+    return database.get(category + ".json")    
+        .then(cat => {        
+        dispatch(addResults(cat.data)) 
+    })
 }
 
 export const addResults = (cat) => ({

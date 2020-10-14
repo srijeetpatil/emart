@@ -47,7 +47,7 @@ class Main extends React.Component{
         this.props.fetchFeatured();
         this.props.fetchCarousel();
         this.props.fetchResults();
-    }
+        }
 
     sendItem({match}){
         var prodId = match.params.prod_id.slice(0, 4);               
@@ -143,7 +143,7 @@ class Main extends React.Component{
     }       
     headerMain(){
         var width = window.innerWidth;
-        if(width > 768){
+        if(width > 800){
             return(<HeaderBig loginClicked={this.loginClicked}/>);
         }
         else{
@@ -178,7 +178,7 @@ class Main extends React.Component{
             })
         );
     }    
-    render(){                   
+    render(){                               
         const SendResult = ({match}) => {  
             var category = match.params.str.slice(1,);
             var num = parseInt(match.params.str.slice(0, 1)); 
@@ -194,7 +194,7 @@ class Main extends React.Component{
                 this.setState({
                     resultsLoaded: num
                 })
-            }                                                                                       
+            }                                                                                                  
             return(
                   <div style={{backgroundColor: "white"}}>
                       <Result category={category} mainCategory={mainCategory}  results={this.props.results.results}/>
@@ -222,7 +222,7 @@ class Main extends React.Component{
                                         <Promos arr={this.props.featured.featured}/>                                      
                                     </div>                                                                                                               
                                 </div>                            
-                            );
+                                );                            
                             }}/> 
                         <Route path='/result/:str' component={SendResult}/>                                            
                         <Route path='/itemDetail/:prod_id' component={this.sendItem}/>                                 

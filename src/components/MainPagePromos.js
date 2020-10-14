@@ -11,7 +11,7 @@ class Promos extends Component{
     render(){         
             var arr = this.props.arr;                                                                 
             const items = arr.map((item) => {
-            var source = baseurl + item.image;                        
+            var source = item.image;                        
             return(
                 <div className="mt-2 cardItem">                    
                     <Card style={{height:"100%", borderRadius:"0px"}}>

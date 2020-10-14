@@ -1,9 +1,7 @@
 import React from 'react';
-import {Navbar, Nav, InputGroup, Input, NavItem, NavLink, Button,NavbarBrand, Collapse, NavbarToggler} from 'reactstrap';
+import {NavLink} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import { render } from 'react-dom';
 import DropDown from './DropDownComponent';
-import dropdowndata from '../data/dropdowndata';
 
 class HeaderBig extends React.Component{
     
@@ -75,7 +73,7 @@ class HeaderBig extends React.Component{
                                         <h6 className="basic-font"><span className="fa fa-plug"></span> Electronics</h6>
                                     </Link>
                                 </NavLink>                                                                                                                      
-                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"6", position:"absolute"}}>
+                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"7", position:"absolute"}}>
                                     {this.state.electronics}
                                 </div>                                               
                             </div>                                                                                                                                           
@@ -97,7 +95,7 @@ class HeaderBig extends React.Component{
                                         <h6 className="basic-font"><span className="fa fa-male"></span> Men</h6>
                                     </Link>
                                 </NavLink>                                                                                                                       
-                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"5", position:"absolute"}}> 
+                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"6", position:"absolute"}}> 
                                     {this.state.men}        
                                 </div>                 
                             </div>                                                                                                                   
@@ -119,7 +117,7 @@ class HeaderBig extends React.Component{
                                         <h6 className="basic-font"><span className="fa fa-female"></span> Women</h6>
                                     </Link>
                                 </NavLink>                                                                                                                                    
-                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"4", position:"absolute"}}> 
+                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"5", position:"absolute"}}> 
                                     {this.state.women}        
                                 </div>                  
                             </div>
@@ -141,7 +139,7 @@ class HeaderBig extends React.Component{
                                         <h6 className="basic-font"><span className="fa fa-child"></span> Kids</h6>
                                     </Link>
                                 </NavLink>                                                                                                                                    
-                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"3", position:"absolute"}}> 
+                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"4", position:"absolute"}}> 
                                     {this.state.kids}        
                                 </div>                  
                             </div>
@@ -163,7 +161,7 @@ class HeaderBig extends React.Component{
                                         <h6 className="basic-font"><span className="fa fa-futbol-o"></span> Sports</h6>
                                     </Link>
                                 </NavLink>                                                                                                                                  
-                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"2", position:"absolute"}}> 
+                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"3", position:"absolute"}}> 
                                     {this.state.sports}        
                                 </div>                   
                             </div>
@@ -185,7 +183,7 @@ class HeaderBig extends React.Component{
                                         <h6 className="basic-font"><span className="fa fa-book"></span> Books</h6>
                                     </Link>
                                 </NavLink>                                                                                                                                   
-                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"1", position:"absolute"}}> 
+                                <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-content", zIndex:"2", position:"absolute"}}> 
                                     {this.state.books}       
                                 </div>                   
                             </div>

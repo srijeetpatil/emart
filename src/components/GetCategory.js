@@ -1,16 +1,15 @@
-import {baseurl} from '../data/baseurl';
+import database from '../data/database';
 import {useState, useEffect} from 'react';
 
 const GetCategory = (category) => {
     const [item, setItem] = useState([]);    
 
     useEffect(() => {
-        fetch(baseurl + category)
-        .then(response => response.json())
+        database.get(category + ".json")        
         .then(cat => {
-            setItem(cat)            
+            setItem(cat.data)            
         })            
-    }, []);         
+    }, []);        
     if(item.length !== 0){                     
         return item;
     }

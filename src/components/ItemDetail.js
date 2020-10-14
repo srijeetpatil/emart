@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Search from './SearchBarComponent';
 import SimilarProducts from './SimilarProducts';
-import {baseurl} from '../data/baseurl';
 
 class ItemDetail extends Component{
     constructor(props){
@@ -10,13 +9,13 @@ class ItemDetail extends Component{
     render(){                  
         if(this.props.item.name === "Loading"){
             return(
-                <div>
-                    <h1>Loading</h1>
+                <div style={{width:"100%", height:"100vh"}}>
+                    <h1 style={{textAlign:"center"}}>Loading</h1>
                 </div>
             );
         }
         else{
-            var source = baseurl + this.props.item.image;                                      
+            var source = this.props.item.image;                                      
             return(
                 <div>                
                     <Search color={"#f0edf3"}/>                              

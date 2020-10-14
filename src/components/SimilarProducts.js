@@ -1,5 +1,4 @@
 import React from 'react';
-import {baseurl} from '../data/baseurl';
 import {NavLink} from 'react-router-dom';
 import {Card, CardBody, CardImg} from 'reactstrap';
 
@@ -12,7 +11,7 @@ function SimilarProducts(props){
         }
     }            
     const similar = items.map((i) => {
-        let source = baseurl + i.image;
+        let source = i.image;
         return(                                                                          
             <div className="cardItem" style={{overflow:"hidden"}}>                    
                 <Card style={{borderRadius:"0px"}}>
