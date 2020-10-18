@@ -29,6 +29,7 @@ function Search(props){
     })        
 
     const [searchValue, setSearchValue] = useState("");
+    const [disabled, setDisabled] = useState(true);
     
     const changeResults = (e) => {
         var sr = () => {
@@ -38,6 +39,7 @@ function Search(props){
         }        
         if(e.target.value){       
             setSearchValue(e.target.value);
+            setDisabled(false);
             sr = listofSearches(e.target.value).map((item) => {
                 return(
                     <div id={item} style={{width: "100%"}} onMouseOver={() => document.getElementById(item).style.backgroundColor = "#c6c6c6"}
@@ -58,6 +60,9 @@ function Search(props){
                 );
             });           
         }        
+        else{
+            setDisabled(true);
+        }
         setSearchResults(sr);
     }
 
@@ -70,9 +75,11 @@ function Search(props){
                         <div className="row">                            
                             <input id="searchInputBox" className="basic-font" type="text" placeholder="Search" style={{outline:"0", border:"0px", borderBottom:"2px"}}
                             onChange={changeResults}></input>
-                            <Link to={`result/${"6" + searchValue}`} style={{marginLeft:"auto", marginRight:"5px", marginTop:"auto", marginBottom:"auto"}}>
-                                <i className="fa fa-search"></i>
-                            </Link>                           
+                            <div disabled={disabled} style={{marginLeft:"auto", marginRight:"5px", marginTop:"auto", marginBottom:"auto"}}>
+                                <Link to={`result/${"6" + searchValue}`}>
+                                    <i className="fa fa-search"></i>
+                                </Link> 
+                            </div>                          
                         </div>
                         <div className="basic-font" style={{left:0, borderRadius:"0px 0px 7px 7px", position:"absolute", width:"100%", backgroundColor:"#ffffff", borderStyle:"solid",
                             borderWidth:"1px", borderColor:"#c6c6c6", outline:"none", marginBottom:"10px"}}>
