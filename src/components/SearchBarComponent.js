@@ -1,11 +1,25 @@
 import React, {useState} from 'react';
 import SearchSuggestions from './searchSuggestions';
+import {Link} from 'react-router-dom';
 
 function Search(props){  
     var arr = SearchSuggestions();  
-    function listofSearches(string){        
-                
-        return arr;
+    function listofSearches(str){        
+        var array = [];
+        for(var i = 0; i < arr.length; i++){
+            var string = arr[i];            
+            var length = str.length;            
+            if(string.length >= length){
+                for(var j = 0; j <= string.length - length; j++){
+                    var anagram = string.slice(j, j + length);                                           
+                    if(anagram.toUpperCase() === str.toUpperCase()){                    
+                        array = array.concat([string]);
+                        break;
+                    }
+                }
+            }
+        }        
+        return array;
     }     
 
     const [searchResults, setSearchResults] = useState(() => {
@@ -13,6 +27,8 @@ function Search(props){
             <div></div>
         );
     })        
+
+    const [searchValue, setSearchValue] = useState("");
     
     const changeResults = (e) => {
         var sr = () => {
@@ -20,14 +36,24 @@ function Search(props){
                 <div></div>
             );
         }        
-        if(e.target.value){            
+        if(e.target.value){       
+            setSearchValue(e.target.value);
             sr = listofSearches(e.target.value).map((item) => {
                 return(
                     <div id={item} style={{width: "100%"}} onMouseOver={() => document.getElementById(item).style.backgroundColor = "#c6c6c6"}
-                    onMouseOut={() => document.getElementById(item).style.backgroundColor = "#ffffff"}>
-                        <div style={{marginLeft:"15px", marginRight:"15px"}}>
-                            {item} 
-                        </div>               
+                    onMouseOut={() => document.getElementById(item).style.backgroundColor = "#ffffff"} onClick={() => {
+                        document.getElementById("searchInputBox").value = item;
+                        setSearchResults(() => {
+                            return(
+                                <div></div>
+                            );
+                        });
+                    }}>
+                        <Link to={`/result/${"6" + item}`} style={{textDecoration:"none", color: "#000000"}}>
+                            <div style={{marginLeft:"15px", marginRight:"15px"}}>
+                                {item} 
+                            </div>
+                        </Link>               
                     </div>
                 );
             });           
@@ -41,9 +67,12 @@ function Search(props){
                 <div className="row" style={{justifyContent:"center", alignItems:"center", maxHeight:"50px"}}>
                     <h1 className="basic-font col-md-3" style={{textAlign:"center"}}>E MART</h1>
                     <div className="search col-md-4 col-9" style={{height:"fit-content", overflow:"visible", backgroundColor:"#ffffff"}}> 
-                        <div>
-                            <input className="basic-font" type="text" placeholder="Search" style={{width:"100%", outline:"0", border:"0px", borderBottom:"2px"}}
+                        <div className="row">                            
+                            <input id="searchInputBox" className="basic-font" type="text" placeholder="Search" style={{outline:"0", border:"0px", borderBottom:"2px"}}
                             onChange={changeResults}></input>
+                            <Link to={`result/${"6" + searchValue}`} style={{marginLeft:"auto", marginRight:"5px", marginTop:"auto", marginBottom:"auto"}}>
+                                <i className="fa fa-search"></i>
+                            </Link>                           
                         </div>
                         <div className="basic-font" style={{left:0, borderRadius:"0px 0px 7px 7px", position:"absolute", width:"100%", backgroundColor:"#ffffff", borderStyle:"solid",
                             borderWidth:"1px", borderColor:"#c6c6c6", outline:"none", marginBottom:"10px"}}>

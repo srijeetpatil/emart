@@ -12,11 +12,16 @@ class Result extends Component{
         var items = [];   
         
         if(this.props.results != null){
-            for(var i = 0; i < this.props.results.length; i++){
-                if(this.props.results[i].category === category){
-                    items = items.concat([this.props.results[i]]);
+           if(category === undefined){                
+                items = this.props.results;
+           }
+           else{
+                for(var i = 0; i < this.props.results.length; i++){
+                    if(this.props.results[i].category === category){
+                        items = items.concat([this.props.results[i]]);
+                    }
                 }
-            }
+           }
     
             const array = items.map((item) => { 
                 var source = item.image;             
@@ -63,7 +68,7 @@ class Result extends Component{
         else{
             return(
                 <div style={{width:"100%", height:"100vh"}}>
-                    <h1 style={{textAlign:"center"}}>Loading</h1>
+                    <h1 style={{textAlign:"center", margin:"auto", display:"block"}}>Loading</h1>
                 </div>
             );
         }

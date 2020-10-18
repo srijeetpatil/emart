@@ -10,6 +10,7 @@ import HeaderBig from './HeaderSample';
 import ScrollToTop from './ScrollToTop';
 import LoginComponent from './LoginComponent';
 import GetCategory from './GetCategory';
+import GetSearchResults from './GetSearchResults';
 import {fetchFeatured, fetchCarousel, fetchResults} from '../redux/ActionCreators';
 import {connect} from 'react-redux';
 
@@ -179,27 +180,40 @@ class Main extends React.Component{
         );
     }    
     render(){                               
-        const SendResult = ({match}) => {  
-            var category = match.params.str.slice(1,);
+        const SendResult = ({match}) => {              
             var num = parseInt(match.params.str.slice(0, 1)); 
-            var mainCategory;            
-            if(num === 0)mainCategory = "electronics";             
-            else if(num === 1)mainCategory = "men";
-            else if(num === 2)mainCategory = "women";
-            else if(num === 3)mainCategory = "kids";
-            else if(num === 4)mainCategory = "sports";
-            else if(num === 5)mainCategory = "books"; 
-            if(this.state.resultsLoaded !== num){
-                this.props.fetchResults(mainCategory);
-                this.setState({
-                    resultsLoaded: num
-                })
-            }                                                                                                  
-            return(
-                  <div style={{backgroundColor: "white"}}>
-                      <Result category={category} mainCategory={mainCategory}  results={this.props.results.results}/>
-                  </div>     
-            );        
+            if(num === 6){      
+                var string = match.params.str.slice(1,);
+                var fetchResults = this.props.fetchResults;
+                var result = GetSearchResults({string, fetchResults});
+
+                return(
+                    <div style={{backgroundColor: "white"}}>
+                        <Result category={undefined} results={result}/>
+                    </div>  
+                );
+            }   
+            else{                
+                var mainCategory;  
+                var category = match.params.str.slice(1,);          
+                if(num === 0)mainCategory = "electronics";             
+                else if(num === 1)mainCategory = "men";
+                else if(num === 2)mainCategory = "women";
+                else if(num === 3)mainCategory = "kids";
+                else if(num === 4)mainCategory = "sports";
+                else if(num === 5)mainCategory = "books"; 
+                if(this.state.resultsLoaded !== num){
+                    this.props.fetchResults(mainCategory);
+                    this.setState({
+                        resultsLoaded: num
+                    })
+                }                                                                                                  
+                return(
+                    <div style={{backgroundColor: "white"}}>
+                        <Result category={category} results={this.props.results.results}/>
+                    </div>     
+                );
+            }     
         }                                  
         return (        
             <div className="bg"> 

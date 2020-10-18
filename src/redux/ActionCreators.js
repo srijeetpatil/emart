@@ -1,5 +1,4 @@
 import * as ActionTypes from './ActionTypes';
-import {baseurl} from '../data/baseurl';
 import database from '../data/database';
 
 export const fetchFeatured = (dispatch) => {

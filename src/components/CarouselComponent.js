@@ -51,9 +51,7 @@ return (
         previous={previous}
         interval="2500"        
     >        
-        {slides} 
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />             
+        {slides}                    
     </Carousel>
     );
 }
