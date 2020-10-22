@@ -55,6 +55,10 @@
     margin: auto;
     object-fit: contain;
 }
+.loginBox{
+    width: 40%;
+}
+
 @keyframes login{
     0% {top: 0px; left: auto; right: auto;}
     100%{top: 200px; left: auto; right: auto;}
@@ -123,6 +127,9 @@ div[disabled]{
     }
     div[disabled]{
         pointer-events: none;
+    }
+    .loginBox{
+        width: 80%;
     }
 }
 @media only screen 

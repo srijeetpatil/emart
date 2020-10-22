@@ -1,32 +1,41 @@
 import GetCategory from './GetCategory';
 
-function GetSearchResults({string, fetchResults}){
+function GetSearchResults(string){
     var results = [];
-    const stringAnalyser = (anagram, string) => {
-        var length = anagram.length;        
-        if(string.length >= length){
-            for(var i = 0; i < string.length - length; i++){
-                var substring = string.slice(i, i + length);
-                if(substring.toUpperCase() === anagram.toUpperCase()){
-                    return 1;
+    const stringAnalyser = (strings, string) => {
+        var count = 0;
+        for(var x in strings){            
+            var length = strings[x].length;   
+            if(strings[x].length === 0){
+                break;
+            }     
+            if(string.length >= length){
+                for(var i = 0; i < string.length - length; i++){
+                    var substring = string.slice(i, i + length);
+                    if(substring.toUpperCase() === strings[x].toUpperCase()){
+                        count ++;
+                    }
                 }
-            }
+            }            
         }
-        return 0;
+        return count;
     }
 
     var categories = ["electronics", "men", "women"];
+
+    var strings = string.split(" ");    
+        
     for(var i = 0; i < categories.length; i++){
         var subCat = GetCategory(categories[i]);    
         if(subCat != undefined){
             for(var j = 0; j < subCat.length; j++){
-                var probability = stringAnalyser(string, subCat[j].category) + stringAnalyser(string, subCat[j].description) +  stringAnalyser(string, subCat[j].name);                
+                var probability = stringAnalyser(strings, subCat[j].category) + stringAnalyser(strings, subCat[j].description) +  stringAnalyser(strings, subCat[j].name);                
                 if(probability > 0){                    
                     results = results.concat([subCat[j]]);                    
                 }
             }
         }
-    }    
+    }      
     return results;
 }
 

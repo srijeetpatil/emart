@@ -13,8 +13,8 @@ class DropDown extends Component{
             return(
                 <div>  
                     <NavLink>
-                        <Link to={`/result/${str}`} onClick={this.props.collapse}>
-                            <p style={{fontSize:"14px"}}>{item.slice(0)}</p>
+                        <Link to={`/result/${str}`} onClick={this.props.collapse} style={{textDecoration:"none"}}>
+                            <p>{item.slice(0)}</p>
                         </Link>
                     </NavLink>                                                                          
                 </div>

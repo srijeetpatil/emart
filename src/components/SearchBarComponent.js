@@ -73,10 +73,10 @@ function Search(props){
                     <h1 className="basic-font col-md-3" style={{textAlign:"center"}}>E MART</h1>
                     <div className="search col-md-4 col-9" style={{height:"fit-content", overflow:"visible", backgroundColor:"#ffffff"}}> 
                         <div className="row">                            
-                            <input id="searchInputBox" className="basic-font" type="text" placeholder="Search" style={{outline:"0", border:"0px", borderBottom:"2px"}}
+                            <input id="searchInputBox" className="basic-font" type="text" placeholder="Search" style={{outline:"0", border:"0px", borderBottom:"2px", borderRadius:"7px 0px 0px 0px"}}
                             onChange={changeResults}></input>
                             <div disabled={disabled} style={{marginLeft:"auto", marginRight:"5px", marginTop:"auto", marginBottom:"auto"}}>
-                                <Link to={`result/${"6" + searchValue}`}>
+                                <Link to={`/result/${"6" + searchValue}`}>
                                     <i className="fa fa-search"></i>
                                 </Link> 
                             </div>                          

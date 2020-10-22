@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, CardBody, CardImg, CardSubtitle, CardTitle, Jumbotron, Button, CardLink} from 'reactstrap';
+import {Card, CardBody, CardImg, Badge} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import Search from './SearchBarComponent';
 import {baseurl} from '../data/baseurl';
@@ -11,12 +11,17 @@ class Promos extends Component{
     render(){         
             var arr = this.props.arr;                                                                 
             const items = arr.map((item) => {
-            var source = item.image;                        
+            var source = item.image;      
+            var off = "";
+            if(item.off){
+                off = item.off + " off";
+            }                  
             return(
                 <div className="mt-2 cardItem">                    
                     <Card style={{height:"100%", borderRadius:"0px"}}>
                         <NavLink className="nav-link" to={`/itemDetail/${item.prod_id}`}>                                                    
-                            <CardBody>                            
+                            <CardBody>  
+                                <Badge color="danger">{off}</Badge>                          
                                 <CardImg style={{objectFit:"contain"}} src={source}></CardImg>                                
                                 <div style={{textAlign: "center", color:"black"}}>
                                     {item.name}                                

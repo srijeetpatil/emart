@@ -1,7 +1,72 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import {Button} from 'reactstrap';
+import {UserDatabase} from '../data/userData';
 
-function LoginComponent(props){    
+function LoginComponent(props){   
+    const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleEmailChange = (e) => {
+        if(!validEmail(e.target.value)){
+            document.getElementById("emailError").innerHTML = '<h6 style="text-align: center">' + '* Invalid Email' + '</h6>';
+        }
+        else{
+            document.getElementById("emailError").innerHTML = '';
+        }
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e) => {
+        if(e.target.value.length === 0){
+            document.getElementById("passwordError").innerHTML = '<h6 style="text-align: center">' + '* Required' + '</h6>';
+        }
+        else{
+            document.getElementById("passwordError").innerHTML = '';
+        }
+        setPassword(e.target.value);
+    }
+
+    const handleSubmit = (email, password) => {
+        if(!validEmail(email)){
+            document.getElementById("emailError").innerHTML = '<h6 style="text-align: center">' + '* Invalid Email' + '</h6>';
+        }    
+        if(password.length === 0){
+            document.getElementById("passwordError").innerHTML = '<h6 style="text-align: center">' + '* Required' + '</h6>';
+        }
+        else{
+            var emailCode = "";
+            for(var i = 0; i < email.length; i++){
+                if(email.charAt(i) === "."){
+                    emailCode = email.slice(0, i);
+                    break;
+                }
+            }  
+            var exists = UserDatabase("Users/" +  emailCode).on('value', function(snapshot){
+                if(snapshot.val() != null){
+                    return 1;
+                }
+                return 0;
+            })
+            if(exists === 0){
+                document.getElementById("loginError").innerHTML = '<h6 style="text-align: center">' + 'Email id doesnt exist' + '</h6>';
+            }
+            else{
+                UserDatabase("Users/" + emailCode + "/password").on('value', function(snapshot){
+                    if(snapshot.val() === password){                        
+                        localStorage.setItem("logged", JSON.stringify(emailCode));                        
+                        props.loginCancelled();
+                        window.location.reload(false);
+                    }
+                    else{                        
+                        document.getElementById("loginError").innerHTML = '<h6 style="text-align: center">' + 'Invalid email or password' + '</h6>';
+                    }
+                })                
+            }
+        }
+    }
+
     return(
         <div style={{width:"100%", paddingTop:"100px"}}>
             <div className="loginObject"> 
@@ -15,18 +80,27 @@ function LoginComponent(props){
                 </div>                
                 <div style={{padding:"15px"}}>                     
                     <div style={{paddingTop:"10px"}}>
-                        <input type="email" placeholder="Email" style={{width:"70%", marginLeft:"auto", marginRight:"auto", display:"block", borderRadius:"5px", border:"0px"}}></input>
+                        <input type="email" placeholder="Email" style={{width:"70%", marginLeft:"auto", marginRight:"auto", display:"block", borderRadius:"5px", border:"0px"}} onChange={handleEmailChange}></input>
                     </div> 
+                    <div id="emailError" className="text-danger"></div>
                     <div style={{paddingTop:"10px"}}>
-                        <input type="password" placeholder="Password" style={{width:"70%", marginLeft:"auto", marginRight:"auto", display:"block", borderRadius:"5px", border:"0px"}}></input>
+                        <input type="password" placeholder="Password" style={{width:"70%", marginLeft:"auto", marginRight:"auto", display:"block", borderRadius:"5px", border:"0px"}} onChange={handlePasswordChange}></input>
                     </div>
-                    <button style={{marginLeft:"auto", marginRight:"auto", display:"block", marginTop:"10px", borderRadius:"5px", backgroundColor:"#2778f3", color:"floralwhite"}}>Log in</button> 
-                    <p style={{marginLeft:"auto", marginRight:"auto", display:"block", paddingTop:"10px", textAlign:"center", color:"floralwhite"}}>Or login with</p>
-                    <div className="row" style={{paddingTop:"10px", justifyContent:"center"}}>
-                        <span className="fa fa-google fa-lg" style={{marginLeft:"10px", color:"#df0a0a"}}></span>
-                        <span className="fa fa-facebook fa-lg" style={{marginLeft:"10px", color:"#2778f3"}}></span>
-                        <span className="fa fa-instagram fa-lg" style={{marginLeft:"10px", color:"#b71a96"}}></span>                        
-                    </div>
+                    <div id="passwordError" className="text-danger"></div>
+                    <Button color="info" style={{marginLeft:"auto", marginRight:"auto", display:"block", marginTop:"10px", borderRadius:"5px", color:"floralwhite"}} onClick={() => {
+                        handleSubmit(email, password);
+                    }}>Log in</Button> 
+                    <div id="loginError" className="text-danger"></div>
+                    <p style={{marginLeft:"auto", marginRight:"auto", display:"block", paddingTop:"10px", textAlign:"center", color:"floralwhite"}}>Or</p>                    
+                    <Link to="/signup" style={{textDecoration:"none"}} >
+                        <Button color="info" style={{color:"floralwhite",marginLeft:"auto", marginRight:"auto", display:"block", marginTop:"10px", borderRadius:"5px", color:"floralwhite"}} onClick={() => {                            
+                            return(                                
+                                props.loginCancelled()
+                            );
+                            }}>
+                        Sign up
+                        </Button> 
+                    </Link>                        
                 </div>                                            
             </div> 
         </div>

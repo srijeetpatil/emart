@@ -16,12 +16,12 @@ function SimilarProducts(props){
             <div className="cardItem" style={{overflow:"hidden"}}>                    
                 <Card style={{borderRadius:"0px"}}>
                     <NavLink style={{textDecoration:"none"}} to={`/itemDetail/${i.prod_id}`}>                                                                             
-                        <CardBody style={{height:"250px"}}>                            
+                        <CardBody style={{height:"250px", backgroundImage: "linear-gradient(transparent 60%, white 80%)"}}>                            
                             <CardImg style={{objectFit:"contain", height:"60%"}} src={source}></CardImg>                                
-                            <div style={{textAlign: "center", color:"black"}}>
+                            <div style={{textAlign: "center", color:"black", height:"20%", overflow:"hidden"}}>
                                 <p style={{fontSize:"12px"}}><b>{i.name}</b></p>                                
                             </div> 
-                            <div style={{textAlign: "center", color:"#bb0b0b"}}>
+                            <div style={{textAlign: "center", color:"#bb0b0b", height:"20%"}}>
                                 <h6>{i.price}</h6>                                
                             </div>                                                       
                         </CardBody>

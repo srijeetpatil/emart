@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import descriptionFormatter from './DescriptionFormatter';
 import Search from './SearchBarComponent';
+import { Spinner } from 'reactstrap';
 
 class Result extends Component{
     constructor(props){
@@ -67,8 +68,9 @@ class Result extends Component{
         }
         else{
             return(
-                <div style={{width:"100%", height:"100vh"}}>
-                    <h1 style={{textAlign:"center", margin:"auto", display:"block"}}>Loading</h1>
+                <div style={{width:"100%", height:"100%"}}>
+                    <h1 style={{textAlign:"center", marginTop:"50%", display:"inline-block"}}>Loading</h1>
+                    <div><Spinner color="dark" style={{margin:"auto", display:"inline-block"}}></Spinner></div>
                 </div>
             );
         }

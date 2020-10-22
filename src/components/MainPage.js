@@ -13,6 +13,9 @@ import GetCategory from './GetCategory';
 import GetSearchResults from './GetSearchResults';
 import {fetchFeatured, fetchCarousel, fetchResults} from '../redux/ActionCreators';
 import {connect} from 'react-redux';
+import {Modal, ModalHeader, ModalBody} from 'reactstrap';
+import SignUpComponent from './SignUpComponent';
+
 
 const mapStateToProps = state => {
     return{
@@ -38,17 +41,24 @@ class Main extends React.Component{
                 );
             },
             disabled: false, 
-            resultsLoaded: -1                     
+            resultsLoaded: -1,
+            cart: false                 
         }
         this.loginClicked = this.loginClicked.bind(this); 
         this.loginCancelled = this.loginCancelled.bind(this);       
     }  
 
+    toggleCart = () => {
+        this.setState({
+            cart: !this.state.cart
+        })
+    }
+
     componentDidMount(){
         this.props.fetchFeatured();
         this.props.fetchCarousel();
-        this.props.fetchResults();
-        }
+        this.props.fetchResults();                           
+    }
 
     sendItem({match}){
         var prodId = match.params.prod_id.slice(0, 4);               
@@ -145,10 +155,10 @@ class Main extends React.Component{
     headerMain(){
         var width = window.innerWidth;
         if(width > 800){
-            return(<HeaderBig loginClicked={this.loginClicked}/>);
+            return(<HeaderBig loginClicked={this.loginClicked} firstname={this.props.firstname} lastname={this.props.lastname} toggleCart={this.toggleCart}/>);
         }
         else{
-            return(<Header loginClicked={this.loginClicked}/>);
+            return(<Header loginClicked={this.loginClicked} firstname={this.props.firstname} lastname={this.props.lastname}/>);
         }
     }
     loginClicked(){ 
@@ -179,17 +189,22 @@ class Main extends React.Component{
             })
         );
     }    
-    render(){                               
-        const SendResult = ({match}) => {              
-            var num = parseInt(match.params.str.slice(0, 1)); 
-            if(num === 6){      
-                var string = match.params.str.slice(1,);
-                var fetchResults = this.props.fetchResults;
-                var result = GetSearchResults({string, fetchResults});
 
+    render(){                                                                            
+        const SendResult = ({match}) => {              
+            var num = parseInt(match.params.str.slice(0, 1));             
+            if(num === 6){      
+                var string = match.params.str.slice(1,);  
+                var results;
+                results = GetSearchResults(string);                              
+                if(this.state.resultsLoaded !== num){                    
+                    this.setState({
+                        resultsLoaded: num
+                    })
+                }
                 return(
                     <div style={{backgroundColor: "white"}}>
-                        <Result category={undefined} results={result}/>
+                        <Result category={undefined} results={results}/>
                     </div>  
                 );
             }   
@@ -201,7 +216,7 @@ class Main extends React.Component{
                 else if(num === 2)mainCategory = "women";
                 else if(num === 3)mainCategory = "kids";
                 else if(num === 4)mainCategory = "sports";
-                else if(num === 5)mainCategory = "books"; 
+                else if(num === 5)mainCategory = "books";                 
                 if(this.state.resultsLoaded !== num){
                     this.props.fetchResults(mainCategory);
                     this.setState({
@@ -214,7 +229,8 @@ class Main extends React.Component{
                     </div>     
                 );
             }     
-        }                                  
+        }   
+        
         return (        
             <div className="bg"> 
                 <div disabled={this.state.disabled}>
@@ -226,9 +242,15 @@ class Main extends React.Component{
                 <div disabled={this.state.disabled}>
                     <Switch>   
                         <ScrollToTop>             
-                        <Route path="/emart" component={() => {
+                        <Route path="/emart" component={() => {                        
                             return(
                                 <div>  
+                                    <Modal isOpen={this.state.cart} toggle={this.toggleCart} className="mycart">
+                                        <ModalHeader toggle={this.toggleCart}>Modal title</ModalHeader>
+                                        <ModalBody>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </ModalBody>                        
+                                    </Modal>
                                     <div className="carouselItem">
                                         <CarouselComponent items={this.props.carousel.carouselItems}/>
                                     </div>                                                                                             
@@ -239,14 +261,15 @@ class Main extends React.Component{
                                 );                            
                             }}/> 
                         <Route path='/result/:str' component={SendResult}/>                                            
-                        <Route path='/itemDetail/:prod_id' component={this.sendItem}/>                                 
+                        <Route path='/itemDetail/:prod_id' component={this.sendItem}/>  
+                        <Route path='/signup' component={() => <SignUpComponent/>} />                              
                         <Redirect to="/emart"/> 
                         </ScrollToTop>                                                                                  
                     </Switch>  
                 </div>
                 <div disabled={this.state.disabled}>
                     <Footer/> 
-                </div>                                                                                                                                                                                   
+                </div>                                                                                                                                                                                                                               
             </div>
         );
     }
