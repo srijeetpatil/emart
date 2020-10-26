@@ -1,6 +1,6 @@
 const dropdowndata = [
     [
-        "Television",'Smartphones','Home appliances', 'Computers & Laptops', 'Kindle', 'Air conditioners'
+        "Television",'Smartphones','Home appliances', 'Computers & Laptops', 'Headphones & Speakers', 'Air conditioners'
     ],
     [
         'Footwear', 'Lenses', 'Clothing', 'Perfumes', 'Hair Products'

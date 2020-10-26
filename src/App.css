@@ -59,6 +59,12 @@
     width: 40%;
 }
 
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;  
+    box-shadow:         3px 3px 5px 6px #ccc;  
+}
+
 @keyframes login{
     0% {top: 0px; left: auto; right: auto;}
     100%{top: 200px; left: auto; right: auto;}

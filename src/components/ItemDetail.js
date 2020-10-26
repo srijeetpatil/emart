@@ -1,14 +1,19 @@
 import React, {Component, useState} from 'react';
 import Search from './SearchBarComponent';
 import SimilarProducts from './SimilarProducts';
-import { Button, Tooltip, Spinner, Badge} from "reactstrap";
+import { Alert, Tooltip, Spinner, Badge} from "reactstrap";
+import { Link } from 'react-router-dom';
+import {UserDatabase} from '../data/userData';
 
 class ItemDetail extends Component{
     constructor(props){
         super(props);    
         this.state = {
             tooltipOpen: false,
-            tooltipOpen2: false
+            tooltipOpen2: false,
+            alertVisible: false,
+            type: "",
+            dangerAlert: false
         }    
     }
 
@@ -23,6 +28,13 @@ class ItemDetail extends Component{
         });
     }
 
+    toggleAlert = (type) => {        
+        this.setState({
+            alertVisible: true,
+            type: type
+        })
+    }
+
     render(){                           
         if(this.props.item.name === "Loading"){
             return(
@@ -32,7 +44,7 @@ class ItemDetail extends Component{
                 </div>
             );
         }
-        else{
+        else{            
             var source = this.props.item.image;    
             var off = "";
             if(this.props.item.off){
@@ -52,19 +64,56 @@ class ItemDetail extends Component{
                                     <div className="ml-3">
                                         <p><b>Price </b><h5 style={{color:"#bb0b0b"}}>{this.props.item.price}</h5></p>
                                     </div>
-                                    <div className="basic-font ml-3" style={{marginTop:"auto", marginBottom:"auto"}} id="addToCart">
-                                        Add to Cart <span className="fa fa-shopping-cart fa-lg" style={{color:"#0e09e3"}}></span>
-                                    </div> 
+                                    <Link style={{textDecoration:"none", marginTop:"auto", marginBottom:"auto"}} onClick={() => {
+                                        var logged = JSON.parse(localStorage.getItem("logged"));
+                                        if(logged.length > 0){
+                                            this.props.item.quantity = 1;
+                                            UserDatabase("Users/" + logged + "/cart/" + this.props.item.prod_id + "/").set(this.props.item);
+                                            this.toggleAlert("cart"); 
+                                        } 
+                                        else{
+                                            this.setState({
+                                                dangerAlert: true
+                                            })
+                                        }                                      
+                                }}>
+                                        <div className="basic-font ml-3" id="addToCart">
+                                            <span className="fa fa-shopping-cart fa-lg" style={{color:"#0e09e3"}}></span>
+                                        </div>
+                                    </Link> 
                                     <Tooltip target="addToCart" placement="bottom" isOpen={this.state.tooltipOpen} toggle={this.toggle1}>
                                         Add to cart
                                     </Tooltip>
-                                    <div className="basic-font ml-3" style={{marginTop:"auto", marginBottom:"auto"}} id="addToWishlist">
-                                        Add to Wishlist <span className="fa fa-heart fa-lg" style={{color:"red"}}></span>
-                                    </div>       
+                                    <Link style={{marginTop:"auto", marginBottom:"auto", textDecoration:"none"}} onClick={() => {
+                                        var logged = JSON.parse(localStorage.getItem("logged"));
+                                        if(logged.length > 0){                                            
+                                            UserDatabase("Users/" + logged + "/wishlist/" + this.props.item.prod_id + "/").set(this.props.item);
+                                            this.toggleAlert("wishlist"); 
+                                        } 
+                                        else{
+                                            this.setState({
+                                                dangerAlert: true
+                                            })
+                                        }                                           
+                                }}>
+                                        <div className="basic-font ml-3" id="addToWishlist">
+                                            <span className="fa fa-heart fa-lg" style={{color:"red"}}></span>
+                                        </div>
+                                    </Link>       
                                     <Tooltip target="addToWishlist" placement="bottom" isOpen={this.state.tooltipOpen2} toggle={this.toggle2}>
                                         Add to your wishlist
                                     </Tooltip>                                                                                                                  
-                                </div>                            
+                                </div>         
+                                <Alert color="success" isOpen={this.state.alertVisible} toggle={() => {
+                                    this.setState({
+                                        alertVisible: false
+                                    })
+                                }}>This product has been added to your {this.state.type}</Alert>
+                                <Alert color="danger" isOpen={this.state.dangerAlert} toggle={() => {
+                                    this.setState({
+                                        dangerAlert: false
+                                    })
+                                }}>You have to log in first !</Alert>                   
                                 <h4 className="basic-font">Decription</h4>
                                 <p style={{fontSize:"14px"}}>{this.props.item.description}</p>
                             </div>

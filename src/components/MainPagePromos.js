@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {Card, CardBody, CardImg, Badge} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import Search from './SearchBarComponent';
-import {baseurl} from '../data/baseurl';
-
+ 
 class Promos extends Component{ 
     constructor(props){
         super(props);        
@@ -12,7 +11,8 @@ class Promos extends Component{
             var arr = this.props.arr;                                                                 
             const items = arr.map((item) => {
             var source = item.image;      
-            var off = "";
+            var off = "";            
+
             if(item.off){
                 off = item.off + " off";
             }                  

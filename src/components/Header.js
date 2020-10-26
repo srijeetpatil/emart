@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Navbar, Nav, InputGroup, Input, NavItem, NavLink, Button,NavbarBrand, Collapse, NavbarToggler} from 'reactstrap';
+import {Navbar, Nav, Modal, ModalBody, ModalHeader, NavItem, NavLink ,NavbarBrand, Collapse, NavbarToggler} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import DropDown from './DropDownComponent';
 
@@ -15,7 +15,8 @@ class Header extends Component{
             is3open: false,
             is4open: false,
             is5open: false,
-            userInfoStatus: false
+            userInfoStatus: false,
+            wishlistModal: false
         }
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleSub = this.toggleSub.bind(this);
@@ -52,6 +53,12 @@ class Header extends Component{
         });
     }
 
+    toggleWishlistModal = () => {
+        this.setState({
+            wishlistModal: !this.state.wishlistModal
+        })
+    }
+
     loginOption = () => {
         if(this.props.firstname.length === 0){
             return(
@@ -86,11 +93,17 @@ class Header extends Component{
                             localStorage.setItem("logged", JSON.stringify(empty));
                             window.location.reload(false);
                         }}>Log out</Link></NavLink>
-                        <NavLink><Link style={{textDecoration:"none"}}>My Cart</Link></NavLink>
-                        <NavLink><Link style={{textDecoration:"none"}}>My Wishlist</Link></NavLink>
+                        <NavLink><Link style={{textDecoration:"none"}} to="/cart" onClick={() => {
+                            this.toggleNav();
+                        }}>My Cart</Link></NavLink>
+                        <NavLink><Link style={{textDecoration:"none"}} onClick={() => {                            
+                            this.toggleNav();
+                        }} to="/wishlist">My Wishlist</Link></NavLink>
+                        <NavLink><Link style={{textDecoration:"none"}} to="/orders" onClick={() => {
+                            this.toggleNav();
+                        }}>My Orders</Link></NavLink>
                     </Collapse> 
                 </div>
-
             );
         }
     }
@@ -98,7 +111,7 @@ class Header extends Component{
 
     render(){
         return(
-            <React.Fragment>
+            <React.Fragment>                 
                 <Navbar className="nav" expand="lg" dark>                        
                     <NavbarBrand className="mr-auto" href>
                         <Link to='/emart' onClick={() => {

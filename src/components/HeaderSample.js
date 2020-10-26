@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'reactstrap';
+import {NavLink, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import DropDown from './DropDownComponent';
 
@@ -43,8 +43,8 @@ class HeaderBig extends React.Component{
                     null
                 );
             },
-            userInfoStatus: 0             
-        }
+            userInfoStatus: 0,                      
+        }       
     }   
 
     avatarClicked = () => {
@@ -70,10 +70,9 @@ class HeaderBig extends React.Component{
                                 localStorage.setItem("logged", JSON.stringify(empty));
                                 window.location.reload(false);
                             }}><Link style={{textDecoration:"none"}}>Log out</Link></NavLink></div>
-                            <div style={{width:"100%"}}><NavLink onClick={() => {
-                                this.props.toggleCart();
-                            }}><Link style={{textDecoration:"none"}}>My Cart</Link></NavLink></div>
-                            <div style={{width:"100%"}}><NavLink><Link style={{textDecoration:"none"}}>My WishList</Link></NavLink></div>
+                            <div><NavLink style={{width:"100%"}}><Link style={{textDecoration:"none"}} to="/cart">My Cart</Link></NavLink></div>
+                            <div style={{width:"100%"}}><NavLink><Link style={{textDecoration:"none"}} to="/wishlist">My WishList</Link></NavLink></div>
+                            <div style={{width:"100%"}}><NavLink><Link style={{textDecoration:"none"}} to="/orders">My Orders</Link></NavLink></div>
                         </div>                                    
                     );
                 },
@@ -115,18 +114,17 @@ class HeaderBig extends React.Component{
                 </div>
             );
         }        
-    }
-    
+    }   
     
     render(){        
         const called = (num) => {                       
             return(
                 <DropDown number={num}/>
             );        
-        }
+        }        
 
         return(
-        <nav style={{height:"fit-content", backgroundColor:"black", userSelect:"none"}}>                 
+        <nav style={{height:"fit-content", backgroundColor:"black", userSelect:"none"}}>                            
             <div className="row" style={{width:"100%"}}>
                 <div style={{margin:"auto"}}>
                     <Link to='/emart' style={{textDecoration:"none"}}>

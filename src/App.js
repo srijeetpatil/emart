@@ -15,7 +15,7 @@ function App(props) {
   useEffect(() => {
     var logged = JSON.parse(localStorage.getItem("logged"));
     if(logged && logged.length != 0){
-        UserDatabase("Users/" + logged + "/firstname/").on("value", function(snapshot) {
+        UserDatabase("Users/" + logged + "/firstname/").on("value", function(snapshot) {            
             setFirstName(snapshot.val());
         });
 
