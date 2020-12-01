@@ -11,7 +11,7 @@ class DropDown extends Component{
         const list = dropdowndata[this.props.number].map((item) => {  
             var str = this.props.number + item;                                        
             return(
-                <div>  
+                <div className="basic-font">  
                     <NavLink>
                         <Link to={`/result/${str}`} onClick={this.props.collapse} style={{textDecoration:"none"}}>
                             <p>{item.slice(0)}</p>

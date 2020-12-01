@@ -21,7 +21,7 @@ function GetSearchResults(string){
         return count;
     }
 
-    var categories = ["electronics", "men", "women"];
+    var categories = ["electronics", "men", "women", "kids", "sports", "books"];
 
     var strings = string.split(" ");    
         
@@ -29,7 +29,7 @@ function GetSearchResults(string){
         var subCat = GetCategory(categories[i]);    
         if(subCat != undefined){
             for(var j = 0; j < subCat.length; j++){
-                var probability = stringAnalyser(strings, subCat[j].category) + stringAnalyser(strings, subCat[j].description) +  stringAnalyser(strings, subCat[j].name);                
+                var probability = stringAnalyser(strings, subCat[j].category) + stringAnalyser(strings, subCat[j].description) +  stringAnalyser(strings, subCat[j].name) + stringAnalyser(strings, subCat[j].prod_id);                
                 if(probability > 0){                    
                     results = results.concat([subCat[j]]);                    
                 }

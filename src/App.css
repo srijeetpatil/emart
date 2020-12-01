@@ -65,6 +65,11 @@
     box-shadow:         3px 3px 5px 6px #ccc;  
 }
 
+.changeAddress{
+    width: 40%;
+    resize: none;
+}
+
 @keyframes login{
     0% {top: 0px; left: auto; right: auto;}
     100%{top: 200px; left: auto; right: auto;}
@@ -137,6 +142,10 @@ div[disabled]{
     .loginBox{
         width: 80%;
     }
+    .changeAddress{
+        width: 100%;
+        resize: none;
+    }
 }
 @media only screen 
   and (min-device-width: 700px) 
@@ -150,5 +159,9 @@ div[disabled]{
         z-index: 10;
         width: 80%;
         margin-left: 10%;
+    }
+    .changeAddress{
+        width: 50%;
+        resize: none;
     }
   }

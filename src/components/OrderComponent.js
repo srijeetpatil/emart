@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {UserDatabase} from '../data/userData';
-import {Card, CardBody} from 'reactstrap';
+import {Card, CardBody, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 function OrderComponent(){
 
     const [empty, setEmpty] = useState(0);
-    const [orders, setOrders] = useState([]);
-    const [location, setLocation] = useState("");
+    const [orders, setOrders] = useState([]);    
     const [phone, setPhone] = useState("");
 
     useEffect(() => {
@@ -17,10 +16,7 @@ function OrderComponent(){
                 setEmpty(1);
             }
             setOrders(snapshot.val());
-        })  
-        UserDatabase("Users/" + logged + "/address/").on("value", function(snapshot){
-            setLocation(snapshot.val());
-        })
+        })          
         UserDatabase("Users/" + logged + "/phone/").on("value", function(snapshot){
             setPhone(snapshot.val());
         })
@@ -36,12 +32,16 @@ function OrderComponent(){
         }
         else{            
             var items = Object.values(orders);            
-            var subOrder = items.map((order) => {                
+            var subOrder = items.map((order) => { 
+                var delAddress;               
                 var orderIndivisual = order.map((od) => {   
                     if(od.total){
                         var expectedDelivery = od.expectedDate;
+                        var total = od.total;
+                        delAddress = od.address;
                         return(
                             <div>
+                                <p><strong>Be ready with: </strong>₹ {total}</p>
                                 <p><strong>Expected delivery date: </strong> {expectedDelivery}</p>
                             </div>
                         );
@@ -71,7 +71,34 @@ function OrderComponent(){
                     <div>                        
                         <div className="container">                            
                             {orderIndivisual}
-                            <p><strong>Delivery location: </strong>{location}</p>
+                            <p><strong>Delivery location: </strong>{delAddress} <a style={{color: "blue", textDecoration: "underline"}}onClick={() => {
+                                document.getElementById(items.indexOf(order)).style.display = "initial";
+                            }}>Change delivery location ?</a></p>                              
+                            <div id={items.indexOf(order)} style={{display: "none"}}>
+                                <textarea id={items.indexOf(order) + "textarea"} className="changeAddress"></textarea>                                                            
+                                <div className="row" style={{marginLeft: "10px"}}>
+                                    <Button color="success" onClick={() => {
+                                        if(document.getElementById(items.indexOf(order) + "textarea").value.length != 0){
+                                            var index = items.indexOf(order);
+                                            var logged = JSON.parse(localStorage.getItem("logged"));
+                                            var array = [];
+                                            var keys = [];
+                                            UserDatabase("Users/" + logged + "/orders/").on("value", (snapshot) => {
+                                                array = Object.values(snapshot.val());
+                                                keys = Object.keys(snapshot.val());
+                                            })
+                                            var changes = array[index];
+                                            changes[1].address = document.getElementById(items.indexOf(order) + "textarea").value;
+                                            var key = keys[index];
+                                            UserDatabase("Users/" + logged + "/orders/" + key + "/").set(changes);
+                                        }
+                                        document.getElementById(items.indexOf(order)).style.display = "none";                                       
+                                    }}>Confirm</Button>
+                                    <Button color="danger" onClick={() => {
+                                        document.getElementById(items.indexOf(order)).style.display = "none";
+                                    }}>Cancel</Button>
+                                </div>
+                            </div>                         
                             <p><strong>Phone: </strong>{phone}</p>
                         </div>
                     </div>

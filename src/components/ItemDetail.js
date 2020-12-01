@@ -14,7 +14,7 @@ class ItemDetail extends Component{
             alertVisible: false,
             type: "",
             dangerAlert: false
-        }    
+        }          
     }
 
     toggle1 = () => {
@@ -33,9 +33,16 @@ class ItemDetail extends Component{
             alertVisible: true,
             type: type
         })
+    }   
+    
+    closeAlltooltips = () => {
+        return this.setState({
+            alertVisible: false,
+            dangerAlert: false
+        });
     }
 
-    render(){                           
+    render(){                     
         if(this.props.item.name === "Loading"){
             return(
                 <div style={{width:"100%", height:"100vh"}}>
@@ -121,7 +128,7 @@ class ItemDetail extends Component{
                     </div>    
                     <h4 style={{textAlign:"center"}}>Similar Products</h4>                     
                     <div style={{display:"flex", backgroundColor:"#f0edf3"}}>                                        
-                        <SimilarProducts category={this.props.item.category} ignore={this.props.item.prod_id} mainCategory={this.props.mainCategory}/>
+                        <SimilarProducts category={this.props.item.category} ignore={this.props.item.prod_id} mainCategory={this.props.mainCategory} closeAlltooltips={this.closeAlltooltips}/>
                     </div> 
                     <hr></hr>          
                 </div>                        

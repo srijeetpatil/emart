@@ -6,14 +6,19 @@ function Search(props){
     var arr = SearchSuggestions();  
     function listofSearches(str){        
         var array = [];
+        var max = 10;
         for(var i = 0; i < arr.length; i++){
             var string = arr[i];            
-            var length = str.length;            
+            var length = str.length;     
+            if(max === 0){
+                break;
+            }       
             if(string.length >= length){
                 for(var j = 0; j <= string.length - length; j++){
                     var anagram = string.slice(j, j + length);                                           
                     if(anagram.toUpperCase() === str.toUpperCase()){                    
                         array = array.concat([string]);
+                        max--;
                         break;
                     }
                 }
@@ -73,7 +78,7 @@ function Search(props){
                     <h1 className="basic-font col-md-3" style={{textAlign:"center"}}>E MART</h1>
                     <div className="search col-md-4 col-9" style={{height:"fit-content", overflow:"visible", backgroundColor:"#ffffff"}}> 
                         <div className="row">                            
-                            <input id="searchInputBox" className="basic-font" type="text" placeholder="Search" style={{outline:"0", border:"0px", borderBottom:"2px", borderRadius:"7px 0px 0px 0px"}}
+                            <input id="searchInputBox" className="basic-font" type="text" placeholder="Search" style={{outline:"0", border:"0px", borderBottom:"2px", borderRadius:"7px 0px 0px 0px", marginLeft:"15px"}}
                             onChange={changeResults}></input>
                             <div disabled={disabled} style={{marginLeft:"auto", marginRight:"5px", marginTop:"auto", marginBottom:"auto"}}>
                                 <Link to={`/result/${"6" + searchValue}`}>

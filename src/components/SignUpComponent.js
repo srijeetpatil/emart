@@ -14,6 +14,7 @@ function SignUpComponent() {
     const [lastname, setLastName] = useState("");
     const [address, setAddress] = useState("");    
     const [phone, setPhone] = useState("");
+    const [userExists, setExists] = useState(0);
 
     const handleFirstName = (e) => {
         if(e.target.value.length === 0){
@@ -96,17 +97,29 @@ function SignUpComponent() {
                     emailCode = email.slice(0, i);
                     break;
                 }
-            }            
-            var exists = UserDatabase("Users/" + emailCode).on('value', function(snapshot) {                
-                if(snapshot.val() != null){
-                    return 1;
-                }
-                return 0;
-            })
-            if(exists === 1){                
+            }   
+            
+            async function user_Exists(){
+                UserDatabase("Users/" + emailCode).on('value', function(snapshot) {                
+                    if(snapshot.val() != null){
+                        setExists(1);
+                    } 
+                    else{
+                        setExists(2);
+                    }                   
+                })
+            }     
+            
+            async function user_Exists2(){
+                await user_Exists();
+            }
+            
+            user_Exists2();
+            
+            if(userExists == 1){                
                 document.getElementById("invalid2").innerHTML = '<h6 style="text-align: center">' + 'This Email already exists in our database' + '</h6>'
             }
-            else{                                                         
+            else if(userExists == 2){                                                         
                 var loginObject = {
                     email: email,
                     password: password,
@@ -118,7 +131,7 @@ function SignUpComponent() {
                 UserDatabase("Users/" + emailCode).set(loginObject);                               
                 localStorage.setItem("logged", JSON.stringify(emailCode)); 
                 setLogin(true);                                               
-            }
+            }        
         }
     }
     if(loginSuccess){                

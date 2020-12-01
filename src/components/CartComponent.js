@@ -76,10 +76,10 @@ function CartComponent() {
                                     <p>{item.name}</p>
                                     <p style={{color:"#bb0b0b"}}>{item.price}</p>                                                                    
                                     <div style={{width:"35%"}}>
-                                        <Input id={item.prod_id} placeholder="Quantity" min={1} max={100} type="number" step="1" onChange={() => {
+                                        <Input id={item.prod_id} placeholder="Quantity" min={0} max={100} type="number" step="1" onChange={() => {
                                             if(document.getElementById(item.prod_id).value < 1){
-                                                document.getElementById(item.prod_id).value = 1;
-                                            }
+                                                UserDatabase("Users/" + logged + "/cart/" + item.prod_id + "/quantity").set(1);
+                                            }                                                                                     
                                             else{
                                                 UserDatabase("Users/" + logged + "/cart/" + item.prod_id + "/quantity").set(document.getElementById(item.prod_id).value);
                                             }                                            
@@ -124,16 +124,25 @@ function CartComponent() {
                                     <input type="radio" disabled checked="checked" style={{float:"left"}}></input>
                                     <p className="ml-2">Cash on Delivery</p>    
                                     <p><strong>Delivery location: </strong></p>
-                                    <p>{address}</p>  
+                                    <textarea id="changeAddress2" placeholder="Address" style={{width: "80%", resize: "none", display: "block"}}></textarea> 
+                                    <a style={{color: "blue", textDecoration: "underline", width: "100%"}} onClick={() => {
+                                        document.getElementById("changeAddress2").value = address;                                        
+                                    }}>Same as before</a> 
                                     <Button color="success" style={{margin:"auto", display:"block"}} onClick={() => {
                                         var logged = JSON.parse(localStorage.getItem("logged"));
                                         var items = Object.values(cart);
+                                        var add = address;
+                                        if(document.getElementById("changeAddress2").value.length != 0){
+                                            add = document.getElementById("changeAddress2").value;
+                                        }
                                         var bill = {
                                             total: total,
-                                            expectedDate: date
+                                            expectedDate: date,
+                                            address: add
                                         }
                                         items = items.concat([bill]);
                                         UserDatabase("Users/" + logged + "/orders/").push(items);
+                                        UserDatabase("Users/" + logged + "/address").set(add);
                                         UserDatabase("Users/" + logged + "/cart").remove();
                                         alert("Your order has been placed successfully");
                                     }}>Confirm</Button>                                                                

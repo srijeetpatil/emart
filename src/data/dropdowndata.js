@@ -3,19 +3,19 @@ const dropdowndata = [
         "Television",'Smartphones','Home appliances', 'Computers & Laptops', 'Headphones & Speakers', 'Air conditioners'
     ],
     [
-        'Footwear', 'Lenses', 'Clothing', 'Perfumes', 'Hair Products'
+        'Footwear', 'Lenses', 'Clothing', 'Perfumes', 'Watches'
     ],
     [
-        'Clothing', 'Perfumes', 'Footwear', 'Accessories', 'Cosmetic Products', 'Hair Products', 'Lenses'
+        'Clothing', 'Perfumes', 'Footwear', 'Accessories', 'Lenses'
     ],
     [
         'Toys', 'Video games', 'Clothing', 'School products'
     ],
     [
-        'Jerseys', 'Football', 'Cricket', 'Protein Supplements','Gym equipments' 
+        'Clothing', 'Football', 'Cricket', 'Protein Supplements','Gym equipments' 
     ],
     [
-        'Fiction', 'Non-Fiction', 'Autobiography', 'Biography', 'History', 'Education', 'Science', 'Politics'
+        'Fiction', 'Non-Fiction', 'Autobiography', 'History', 'Politics'
     ]
 ]
 

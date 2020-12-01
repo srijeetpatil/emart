@@ -108,7 +108,7 @@ class HeaderBig extends React.Component{
                             style={{width:"100%", height:"100%", borderRadius:"50%", objectFit:"fit"}}></img>                                                                     
                         </div>
                     </NavLink>
-                    <div style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-width", zIndex:"7", position:"absolute"}}>
+                    <div className="basic-font" style={{marginTop:"0px",backgroundColor:"floralwhite", width:"max-width", zIndex:"7", position:"absolute"}}>
                         {this.state.userInfo()}
                     </div>  
                 </div>

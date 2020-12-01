@@ -66,9 +66,10 @@ function WishlistComponent(){
         }
         else{
             return(
-                <div className="container" style={{textAlign:"center", height:"100vh"}}>
-                    <h1 className="text-danger basic-font" style={{textAlign:"center"}}>Your wishlist is empty</h1>
-                    <Link to="/emart">Start adding products to your wishlist</Link>
+                <div style={{height:"100vh"}} className="basic-font text-danger">
+                    <h1 style={{textAlign:"center"}}>Your wishlist is empty !</h1>
+                    <div style={{textAlign:"center"}}><Link to="/emart">Continue shopping</Link></div>
+                    <img src="https://i.makeagif.com/media/1-05-2017/LEq2YZ.gif" style={{margin:"auto", display:"block", overflow:"hidden"}}></img>
                 </div>
             );
         }
